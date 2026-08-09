@@ -28,9 +28,9 @@ export const PROJECTS: Project[] = [
     id: "hotels",
     href: "https://hotelskurdistan.com",
     name: {
-      ku: "هۆتێلەکانی کوردستان",
-      ar: "فنادق كردستان",
-      en: "Kurdistan Hotels",
+      ku: "لای حەمە هۆتێلز",
+      ar: "عند حمة للفنادق",
+      en: "Lay Hama Hotels",
     },
     tagline: {
       ku: "هۆتێل بدۆزەرەوە و ڕاستەوخۆ حیجز بکە",
@@ -59,9 +59,9 @@ export const PROJECTS: Project[] = [
     id: "estate",
     href: "https://aqarat-iraq.vercel.app",
     name: {
-      ku: "نووسینگەی ئۆنڵاین",
-      ar: "المكتب الإلكتروني",
-      en: "Online Office",
+      ku: "لای حەمە هۆمز",
+      ar: "عند حمة للعقارات",
+      en: "Lay Hama Homes",
     },
     tagline: {
       ku: "خانوو، شوقە و زەوی بۆ فرۆشتن و کرێ",

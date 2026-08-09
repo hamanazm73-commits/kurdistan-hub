@@ -35,7 +35,7 @@ interface Strings {
 
 const DICT: Record<Locale, Strings> = {
   ku: {
-    brand: "کوردستان ئۆنڵاین",
+    brand: "لای حەمە",
     tagline: "هەموو خزمەتگوزارییەکانمان لە یەک شوێن",
     intro:
       "هەر پرۆژەیەک سایتی خۆی هەیە. یەکێکیان هەڵبژێرە بۆ دەستپێکردن.",
@@ -47,7 +47,7 @@ const DICT: Record<Locale, Strings> = {
     rights: "هەموو مافەکان پارێزراون",
   },
   ar: {
-    brand: "كردستان أونلاين",
+    brand: "عند حمة",
     tagline: "كل خدماتنا في مكان واحد",
     intro: "لكل مشروع موقعه الخاص. اختر واحداً للبدء.",
     visit: "زيارة الموقع",
@@ -58,7 +58,7 @@ const DICT: Record<Locale, Strings> = {
     rights: "جميع الحقوق محفوظة",
   },
   en: {
-    brand: "Kurdistan Online",
+    brand: "Lay Hama",
     tagline: "Everything we build, in one place",
     intro: "Each project has its own site. Pick one to begin.",
     visit: "Visit the site",

@@ -1,12 +1,12 @@
-# Kurdistan Online — the doorway
+# Lay Hama — the doorway
 
 One address that holds every project, so an advert can carry a single link
 instead of choosing between them.
 
 Live projects it opens onto:
 
-- **[Kurdistan Hotels](https://hotelskurdistan.com)** — find a hotel and book directly
-- **Online Office** — houses, flats and land, to buy or rent
+- **[Lay Hama Hotels](https://hotelskurdistan.com)** — find a hotel and book directly
+- **Lay Hama Homes** — houses, flats and land, to buy or rent
 
 ## Adding a project
 

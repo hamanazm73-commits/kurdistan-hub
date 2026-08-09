@@ -11,14 +11,14 @@ const arabic = Noto_Naskh_Arabic({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://kurdistanonline.com"),
-  title: "کوردستان ئۆنڵاین · كردستان أونلاين · Kurdistan Online",
+  metadataBase: new URL("https://layhama.com"),
+  title: "لای حەمە · عند حمة · Lay Hama",
   description:
-    "هۆتێلەکانی کوردستان و نووسینگەی ئۆنڵاین — هەموو خزمەتگوزارییەکانمان لە یەک شوێن. فنادق كردستان والعقارات · Hotels and real estate across Kurdistan.",
+    "لای حەمە هۆتێلز و لای حەمە هۆمز — هەموو خزمەتگوزارییەکانمان لە یەک شوێن. الفنادق والعقارات في كردستان · Hotels and homes across Kurdistan.",
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
-    title: "کوردستان ئۆنڵاین · Kurdistan Online",
+    title: "لای حەمە · Lay Hama",
     description: "هۆتێل و خانووبەرە لە کوردستان — هەمووی لە یەک شوێن.",
   },
 };
