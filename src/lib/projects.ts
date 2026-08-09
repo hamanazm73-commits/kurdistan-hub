@@ -57,7 +57,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "estate",
-    href: "https://aqarat-iraq.vercel.app",
+    href: "https://homeskurdistan.com",
     name: {
       ku: "لای حەمە هۆمز",
       ar: "عند حمة للعقارات",
