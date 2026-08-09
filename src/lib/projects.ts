@@ -28,7 +28,7 @@ export const PROJECTS: Project[] = [
     id: "hotels",
     href: "https://hotelskurdistan.com",
     name: {
-      ku: "لای حەمە هۆتێلز",
+      ku: "هۆتێلەکانی لای حەمە",
       ar: "عند حمة للفنادق",
       en: "Lay Hama Hotels",
     },
@@ -59,7 +59,7 @@ export const PROJECTS: Project[] = [
     id: "estate",
     href: "https://homeskurdistan.com",
     name: {
-      ku: "لای حەمە هۆمز",
+      ku: "نووسینگەی لای حەمە",
       ar: "عند حمة للعقارات",
       en: "Lay Hama Homes",
     },

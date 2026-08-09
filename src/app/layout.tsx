@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://layhama.com"),
   title: "لای حەمە · عند حمة · Lay Hama",
   description:
-    "لای حەمە هۆتێلز و لای حەمە هۆمز — هەموو خزمەتگوزارییەکانمان لە یەک شوێن. الفنادق والعقارات في كردستان · Hotels and homes across Kurdistan.",
+    "هۆتێلەکانی لای حەمە و نووسینگەی لای حەمە — هەموو خزمەتگوزارییەکانمان لە یەک شوێن. الفنادق والعقارات في كردستان · Hotels and homes across Kurdistan.",
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
