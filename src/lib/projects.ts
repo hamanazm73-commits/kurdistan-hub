@@ -7,11 +7,20 @@ export interface Project {
   /** stable key, also the React key and the mark to draw */
   id: "hotels" | "estate";
   href: string;
+  /** the bare address, shown as a small chip — it tells a visitor where the
+      button is about to take them before they press it */
+  domain: string;
   name: L;
   tagline: L;
   /** what a visitor can do there, three at most — this is a doorway, not a
       brochure, and a fourth line makes the card scroll on a phone */
   points: L[];
+  /** The photograph behind the card's head. A doorway with no pictures is a
+      list of links; the image is what makes each one feel like somewhere you
+      are about to walk into. */
+  image: string;
+  /** Alt text per language — the photo carries meaning, so it needs words. */
+  imageAlt: L;
   /** shown when the site isn't live yet */
   comingSoon?: boolean;
 }
@@ -27,6 +36,14 @@ export const PROJECTS: Project[] = [
   {
     id: "hotels",
     href: "https://hotels.layhama.com",
+    domain: "hotels.layhama.com",
+    image:
+      "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200&q=75&auto=format&fit=crop",
+    imageAlt: {
+      ku: "ژوورێکی هۆتێل بە دیمەنێکی کراوە",
+      ar: "غرفة فندق بإطلالة مفتوحة",
+      en: "A hotel room with an open view",
+    },
     name: {
       ku: "هۆتێلەکانی لای حەمە",
       ar: "عند حمة للفنادق",
@@ -58,6 +75,14 @@ export const PROJECTS: Project[] = [
   {
     id: "estate",
     href: "https://homes.layhama.com",
+    domain: "homes.layhama.com",
+    image:
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=75&auto=format&fit=crop",
+    imageAlt: {
+      ku: "خانوویەکی نوێ بە پەنجەرەی گەورە",
+      ar: "منزل حديث بنوافذ واسعة",
+      en: "A modern house with wide windows",
+    },
     name: {
       ku: "نووسینگەی لای حەمە",
       ar: "عند حمة للعقارات",
