@@ -5,8 +5,10 @@ import { ArrowLeft, ChevronDown, Globe } from "lucide-react";
 import { useI18n, LOCALES } from "@/lib/i18n";
 import { PROJECTS } from "@/lib/projects";
 import { HotelsMark, EstateMark, HubMark } from "./marks";
+import { HotelsCover, HomesCover } from "./covers";
 
 const MARKS = { hotels: HotelsMark, estate: EstateMark } as const;
+const COVERS = { hotels: HotelsCover, estate: HomesCover } as const;
 
 const WHATSAPP = "9647700572004";
 
@@ -158,6 +160,7 @@ export function Hub() {
         <div className="mx-auto mt-10 grid max-w-5xl gap-6 sm:mt-14 lg:grid-cols-2">
           {PROJECTS.map((p, i) => {
             const Mark = MARKS[p.id];
+            const Cover = COVERS[p.id];
             const live = !p.comingSoon;
             return (
               <motion.a
@@ -174,18 +177,21 @@ export function Hub() {
                     : "cursor-default opacity-70"
                 }`}
               >
-                {/* The photograph. It needs overflow-hidden so the slow zoom
-                    stays inside the card's rounded corner — which is why the
-                    mark below is a sibling and not a child: half of it hangs
-                    past this edge, and in here that half would be clipped. */}
-                <div className="grain relative h-44 overflow-hidden sm:h-52">
-                  <img
-                    src={p.image}
-                    alt={p.imageAlt[locale]}
-                    loading={i === 0 ? "eager" : "lazy"}
-                    className="card-photo size-full object-cover"
+                {/* The cover, drawn for this project rather than borrowed.
+                    It needs overflow-hidden so the slow zoom stays inside the
+                    card's rounded corner — which is why the mark below is a
+                    sibling and not a child: half of it hangs past this edge,
+                    and in here that half would be clipped. */}
+                <div className="relative h-44 overflow-hidden sm:h-52">
+                  <Cover className="card-photo size-full object-cover" />
+                  {/* the drawing fades into the card rather than stopping at
+                      a hard line above the text */}
+                  <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-navy-deep to-transparent" />
+                  <span
+                    aria-label={p.imageAlt[locale]}
+                    role="img"
+                    className="sr-only"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy-deep via-navy-deep/45 to-navy-deep/10" />
 
                   {!live && (
                     <span className="absolute end-4 top-4 rounded-full bg-gold/15 px-3 py-1 text-xs font-bold text-gold backdrop-blur">

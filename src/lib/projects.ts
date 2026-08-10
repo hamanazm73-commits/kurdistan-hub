@@ -15,11 +15,9 @@ export interface Project {
   /** what a visitor can do there, three at most — this is a doorway, not a
       brochure, and a fourth line makes the card scroll on a phone */
   points: L[];
-  /** The photograph behind the card's head. A doorway with no pictures is a
-      list of links; the image is what makes each one feel like somewhere you
-      are about to walk into. */
-  image: string;
-  /** Alt text per language — the photo carries meaning, so it needs words. */
+  /** What the cover drawing shows, per language. The drawing itself lives in
+      `covers.tsx` — it is artwork, not data — but it still needs describing
+      for anyone who cannot see it. */
   imageAlt: L;
   /** shown when the site isn't live yet */
   comingSoon?: boolean;
@@ -37,12 +35,10 @@ export const PROJECTS: Project[] = [
     id: "hotels",
     href: "https://hotels.layhama.com",
     domain: "hotels.layhama.com",
-    image:
-      "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200&q=75&auto=format&fit=crop",
     imageAlt: {
-      ku: "ژوورێکی هۆتێل بە دیمەنێکی کراوە",
-      ar: "غرفة فندق بإطلالة مفتوحة",
-      en: "A hotel room with an open view",
+      ku: "قەڵای هەولێر و هۆتێلێکی ڕووناک لە بەردەمی",
+      ar: "قلعة أربيل وفندق مضاء أمامها",
+      en: "The Erbil citadel with a lit hotel before it",
     },
     name: {
       ku: "هۆتێلەکانی لای حەمە",
@@ -76,12 +72,10 @@ export const PROJECTS: Project[] = [
     id: "estate",
     href: "https://homes.layhama.com",
     domain: "homes.layhama.com",
-    image:
-      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=75&auto=format&fit=crop",
     imageAlt: {
-      ku: "خانوویەکی نوێ بە پەنجەرەی گەورە",
-      ar: "منزل حديث بنوافذ واسعة",
-      en: "A modern house with wide windows",
+      ku: "گەڕەکێکی خانوو لە زەردەپەڕدا، چراکان داگیرساون",
+      ar: "حي من المنازل عند الغروب، والأضواء مضاءة",
+      en: "A street of houses at dusk with the lights on",
     },
     name: {
       ku: "نووسینگەی لای حەمە",
