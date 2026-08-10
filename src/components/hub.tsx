@@ -112,15 +112,6 @@ export function Hub() {
           >
             {t.tagline}
           </motion.p>
-
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.7, duration: 0.6 }}
-            className="mt-3 max-w-sm text-sm leading-relaxed text-white/45"
-          >
-            {t.intro}
-          </motion.p>
         </div>
 
         <motion.a

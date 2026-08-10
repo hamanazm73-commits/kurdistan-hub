@@ -21,7 +21,6 @@ const STORAGE_KEY = "hub.locale";
 interface Strings {
   brand: string;
   tagline: string;
-  intro: string;
   visit: string;
   soon: string;
   /** the small line above the brand, where a masthead would sit */
@@ -39,9 +38,7 @@ interface Strings {
 const DICT: Record<Locale, Strings> = {
   ku: {
     brand: "لای حەمە",
-    tagline: "هەموو خزمەتگوزارییەکانمان لە یەک شوێن",
-    intro:
-      "هەر پرۆژەیەک سایتی خۆی هەیە. یەکێکیان هەڵبژێرە بۆ دەستپێکردن.",
+    tagline: "لای حەمە چی هەیە؟",
     visit: "بچۆ بۆ سایتەکە",
     soon: "بەم زووانە",
     projectsTitle: "پرۆژەکانمان",
@@ -54,8 +51,7 @@ const DICT: Record<Locale, Strings> = {
   },
   ar: {
     brand: "عند حمة",
-    tagline: "كل خدماتنا في مكان واحد",
-    intro: "لكل مشروع موقعه الخاص. اختر واحداً للبدء.",
+    tagline: "ماذا لدى عند حمة؟",
     visit: "زيارة الموقع",
     soon: "قريباً",
     projectsTitle: "مشاريعنا",
@@ -68,8 +64,7 @@ const DICT: Record<Locale, Strings> = {
   },
   en: {
     brand: "Lay Hama",
-    tagline: "Everything we build, in one place",
-    intro: "Each project has its own site. Pick one to begin.",
+    tagline: "What is there at Lay Hama?",
     visit: "Visit the site",
     soon: "Coming soon",
     projectsTitle: "Our projects",
