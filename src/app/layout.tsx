@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Noto_Naskh_Arabic, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { I18nProvider } from "@/lib/i18n";
+import { SITE_URL } from "@/lib/seo";
 
 const sans = Plus_Jakarta_Sans({ variable: "--font-sans", subsets: ["latin"] });
 const arabic = Noto_Naskh_Arabic({
@@ -11,15 +12,23 @@ const arabic = Noto_Naskh_Arabic({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://layhama.com"),
+  metadataBase: new URL(SITE_URL),
+  // Each page sets its own title in its own language; this is only the
+  // fallback if one ever forgets to.
   title: "لای حەمە · عند حمة · Lay Hama",
   description:
     "هۆتێلەکانی لای حەمە و نووسینگەی لای حەمە — هەموو خزمەتگوزارییەکانمان لە یەک شوێن. الفنادق والعقارات في كردستان · Hotels and homes across Kurdistan.",
-  alternates: { canonical: "/" },
-  openGraph: {
-    type: "website",
-    title: "لای حەمە · Lay Hama",
-    description: "هۆتێل و خانووبەرە لە کوردستان — هەمووی لە یەک شوێن.",
+  applicationName: "Lay Hama",
+  keywords: [
+    "لای حەمە", "هۆتێل", "خانووبەرە", "هەولێر", "سلێمانی", "دهۆک", "کەرکووک",
+    "عند حمة", "فنادق", "عقارات", "كردستان", "أربيل",
+    "Lay Hama", "hotels", "real estate", "Kurdistan", "Erbil", "Iraq",
+  ],
+  openGraph: { siteName: "Lay Hama", type: "website" },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large" },
   },
 };
 
