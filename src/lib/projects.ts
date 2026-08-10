@@ -26,7 +26,7 @@ export interface Project {
 export const PROJECTS: Project[] = [
   {
     id: "hotels",
-    href: "https://hotelskurdistan.com",
+    href: "https://hotels.layhama.com",
     name: {
       ku: "هۆتێلەکانی لای حەمە",
       ar: "عند حمة للفنادق",
@@ -57,7 +57,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "estate",
-    href: "https://homeskurdistan.com",
+    href: "https://homes.layhama.com",
     name: {
       ku: "نووسینگەی لای حەمە",
       ar: "عند حمة للعقارات",
