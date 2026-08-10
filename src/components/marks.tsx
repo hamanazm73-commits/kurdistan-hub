@@ -8,7 +8,7 @@
 const NAVY = "#15304A";
 const GOLD = "#DFB250";
 
-/** The shared star, drawn with its tip at (50,20) and centre near (50,27.5). */
+/** The star, drawn with its tip at (50,20) and centre near (50,27.5). */
 const STAR_D =
   "M50 20 l2.3 4.8 5.3.8-3.8 3.7 1 5.3-4.8-2.5-4.8 2.5 1-5.3-3.8-3.7 5.3-.8Z";
 
@@ -16,19 +16,24 @@ const STAR_D =
 const placeStar = (cx: number, cy: number, s: number) =>
   `translate(${cx} ${cy}) scale(${s}) translate(-50 -27.5)`;
 
+/** The three stars both project marks wear: one leading, two smaller flanking. */
+function Stars() {
+  return (
+    <g fill={GOLD}>
+      <path d={STAR_D} transform={placeStar(50, 23, 1)} />
+      <path d={STAR_D} transform={placeStar(34.5, 30, 0.62)} />
+      <path d={STAR_D} transform={placeStar(65.5, 30, 0.62)} />
+    </g>
+  );
+}
+
+/** The navy field and gold double ring. Each mark supplies its own stars —
+ *  the two projects wear three, the monogram wears none. */
 function Badge({
   className,
-  star = true,
-  starY = 27.5,
   children,
 }: {
   className?: string;
-  /** The project marks sit under a star; the monogram fills that space
-      itself, and the homes mark brings three of its own. */
-  star?: boolean;
-  /** Where the single star's centre sits — the taller citadel needs it
-      lifted so the middle tower does not run into it. */
-  starY?: number;
   children: React.ReactNode;
 }) {
   return (
@@ -38,23 +43,21 @@ function Badge({
       <svg viewBox="0 0 100 100" className="size-[82%]" aria-hidden="true">
         <circle cx="50" cy="50" r="43" fill="none" stroke={GOLD} strokeWidth="2.4" />
         <circle cx="50" cy="50" r="37" fill="none" stroke={GOLD} strokeWidth="1" />
-        {star && (
-          <path
-            d={STAR_D}
-            transform={placeStar(50, starY, 1)}
-            fill={GOLD}
-          />
-        )}
         {children}
       </svg>
     </span>
   );
 }
 
-/** Lay Hama Hotels — the citadel of Erbil, middle tower carrying the mark. */
+/**
+ * Lay Hama Hotels — the citadel of Erbil, middle tower carrying the mark,
+ * under the same three stars its sister wears. The stars sit wide of the
+ * middle so the taller centre tower runs up into the gap between them.
+ */
 export function HotelsMark({ className }: { className?: string }) {
   return (
-    <Badge className={className} starY={26.5}>
+    <Badge className={className}>
+      <Stars />
       <g fill={GOLD}>
         <rect x="33" y="52" width="8" height="17" />
         <rect x="44.5" y="37" width="11" height="32" />
@@ -66,18 +69,14 @@ export function HotelsMark({ className }: { className?: string }) {
 }
 
 /**
- * Lay Hama Homes — a filled house with its door punched out, under three
- * stars. It brings its own stars rather than the shared single one, so the
- * badge suppresses that.
+ * Lay Hama Homes — a filled house with its door punched out, under the same
+ * three stars. Filled rather than outlined: at small sizes thin gold strokes
+ * close up into a smudge, while a solid silhouette keeps its shape.
  */
 export function EstateMark({ className }: { className?: string }) {
   return (
-    <Badge className={className} star={false}>
-      <g fill={GOLD}>
-        <path d={STAR_D} transform={placeStar(50, 23, 1)} />
-        <path d={STAR_D} transform={placeStar(34.5, 30, 0.62)} />
-        <path d={STAR_D} transform={placeStar(65.5, 30, 0.62)} />
-      </g>
+    <Badge className={className}>
+      <Stars />
       <path
         d="M50 36 L27 55 L33 55 L33 72 L67 72 L67 55 L73 55 Z"
         fill={GOLD}
@@ -97,7 +96,7 @@ export function EstateMark({ className }: { className?: string }) {
  */
 export function HubMark({ className }: { className?: string }) {
   return (
-    <Badge className={className} star={false}>
+    <Badge className={className}>
       <g stroke={GOLD} strokeWidth="5" strokeLinecap="round" fill="none">
         <path d="M48 38 V68" />
         <path d="M67 38 V68" />
