@@ -8,14 +8,27 @@
 const NAVY = "#15304A";
 const GOLD = "#DFB250";
 
+/** The shared star, drawn with its tip at (50,20) and centre near (50,27.5). */
+const STAR_D =
+  "M50 20 l2.3 4.8 5.3.8-3.8 3.7 1 5.3-4.8-2.5-4.8 2.5 1-5.3-3.8-3.7 5.3-.8Z";
+
+/** Sit a copy of the star at (cx,cy), scaled by s about its own centre. */
+const placeStar = (cx: number, cy: number, s: number) =>
+  `translate(${cx} ${cy}) scale(${s}) translate(-50 -27.5)`;
+
 function Badge({
   className,
   star = true,
+  starY = 27.5,
   children,
 }: {
   className?: string;
-  /** The project marks sit under a star; the monogram fills that space itself. */
+  /** The project marks sit under a star; the monogram fills that space
+      itself, and the homes mark brings three of its own. */
   star?: boolean;
+  /** Where the single star's centre sits — the taller citadel needs it
+      lifted so the middle tower does not run into it. */
+  starY?: number;
   children: React.ReactNode;
 }) {
   return (
@@ -27,7 +40,8 @@ function Badge({
         <circle cx="50" cy="50" r="37" fill="none" stroke={GOLD} strokeWidth="1" />
         {star && (
           <path
-            d="M50 27 l1.9 4 4.4.6-3.2 3.1.8 4.4-3.9-2.1-3.9 2.1.8-4.4-3.2-3.1 4.4-.6Z"
+            d={STAR_D}
+            transform={placeStar(50, starY, 1)}
             fill={GOLD}
           />
         )}
@@ -37,13 +51,13 @@ function Badge({
   );
 }
 
-/** Kurdistan Hotels — the citadel of Erbil. */
+/** Lay Hama Hotels — the citadel of Erbil, middle tower carrying the mark. */
 export function HotelsMark({ className }: { className?: string }) {
   return (
-    <Badge className={className}>
+    <Badge className={className} starY={26.5}>
       <g fill={GOLD}>
         <rect x="33" y="52" width="8" height="17" />
-        <rect x="46" y="45" width="8" height="24" />
+        <rect x="44.5" y="37" width="11" height="32" />
         <rect x="59" y="52" width="8" height="17" />
       </g>
       <path d="M30 69 H70" stroke={GOLD} strokeWidth="2.2" strokeLinecap="round" />
@@ -51,27 +65,24 @@ export function HotelsMark({ className }: { className?: string }) {
   );
 }
 
-/** Online Office — a peaked roof over a lit window. */
+/**
+ * Lay Hama Homes — a filled house with its door punched out, under three
+ * stars. It brings its own stars rather than the shared single one, so the
+ * badge suppresses that.
+ */
 export function EstateMark({ className }: { className?: string }) {
   return (
-    <Badge className={className}>
-      <g stroke={GOLD} strokeWidth="5.5" strokeLinecap="round" fill="none">
-        <path d="M31 62 L47 47" />
-        <path d="M53 47 L69 62" />
-      </g>
+    <Badge className={className} star={false}>
       <g fill={GOLD}>
-        <rect x="42" y="56" width="5" height="5" rx="0.8" />
-        <rect x="49.5" y="56" width="5" height="5" rx="0.8" />
-        <rect x="42" y="63.5" width="5" height="5" rx="0.8" />
-        <rect x="49.5" y="63.5" width="5" height="5" rx="0.8" />
+        <path d={STAR_D} transform={placeStar(50, 23, 1)} />
+        <path d={STAR_D} transform={placeStar(34.5, 30, 0.62)} />
+        <path d={STAR_D} transform={placeStar(65.5, 30, 0.62)} />
       </g>
       <path
-        d="M29 74 Q50 80 71 74"
-        fill="none"
-        stroke={GOLD}
-        strokeWidth="2.4"
-        strokeLinecap="round"
+        d="M50 36 L27 55 L33 55 L33 72 L67 72 L67 55 L73 55 Z"
+        fill={GOLD}
       />
+      <rect x="45" y="59" width="10" height="13" rx="1.4" fill={NAVY} />
     </Badge>
   );
 }
