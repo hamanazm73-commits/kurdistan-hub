@@ -92,29 +92,61 @@ export function Hub() {
             <HubMark className="relative size-20 sm:size-24" />
           </motion.div>
 
-          {/* The name carries the page on its own; mt-6 is the spacing the
-              removed eyebrow used to hold between the mark and the name. */}
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.7, ease: "easeOut" }}
-            className="text-gold-gradient gold-sweep mt-6 text-[2.75rem] font-extrabold leading-[1.05] tracking-tight sm:text-7xl"
-          >
-            {t.brand}
-          </motion.h1>
+          {/* The name, a word at a time.
+              Kurdish is a joined script: splitting a word into per-letter
+              spans renders every letter in its isolated form and the word
+              falls apart. Words are the smallest safe unit, and the stagger
+              between them is what makes this read as a name being spoken
+              rather than a block of text appearing.
 
+              Lighter and looser than it was. `font-extrabold tracking-tight`
+              is drawn for Latin; on Kurdish it presses the letters together
+              until the name looks cramped. Size carries the weight instead —
+              500 is also a weight the Arabic face actually ships, so nothing
+              is synthesised. */}
+          <h1 className="text-gold-gradient gold-sweep mt-6 flex flex-wrap justify-center gap-x-[0.28em] text-[2.9rem] font-medium leading-[1.18] sm:text-7xl">
+            {t.brand.split(" ").map((word, i) => (
+              <motion.span
+                key={i}
+                initial={{ opacity: 0, y: 26, filter: "blur(8px)" }}
+                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                transition={{
+                  delay: 0.15 + i * 0.16,
+                  duration: 0.95,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+              >
+                {word}
+              </motion.span>
+            ))}
+          </h1>
+
+          {/* The rule carries the Latin name inside it rather than beneath —
+              one line of furniture instead of two. In English the heading has
+              already said it, so the rule closes up and stays a plain rule. */}
           <motion.div
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ delay: 0.5, duration: 0.7, ease: "easeOut" }}
-            className="mt-5 h-px w-32 origin-center bg-gradient-to-r from-transparent via-gold to-transparent"
-          />
+            initial={{ opacity: 0, scaleX: 0 }}
+            animate={{ opacity: 1, scaleX: 1 }}
+            transition={{ delay: 0.6, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="mt-6 flex w-full max-w-xs items-center justify-center gap-3"
+          >
+            <span className="h-px flex-1 bg-gradient-to-r from-transparent to-gold/60" />
+            {locale !== "en" && (
+              <span
+                dir="ltr"
+                className="text-[0.62rem] font-medium tracking-[0.42em] text-gold/70 sm:text-[0.7rem]"
+              >
+                LAY HAMA
+              </span>
+            )}
+            <span className="h-px flex-1 bg-gradient-to-l from-transparent to-gold/60" />
+          </motion.div>
 
           <motion.p
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.55, duration: 0.6 }}
-            className="mt-5 max-w-lg text-balance text-lg font-semibold leading-snug text-white/90 sm:text-2xl"
+            transition={{ delay: 0.78, duration: 0.6 }}
+            className="mt-5 max-w-lg text-balance text-base font-normal leading-relaxed text-white/70 sm:text-xl"
           >
             {t.tagline}
           </motion.p>
