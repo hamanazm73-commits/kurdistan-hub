@@ -25,7 +25,6 @@ interface Strings {
   visit: string;
   soon: string;
   /** the small line above the brand, where a masthead would sit */
-  eyebrow: string;
   /** heading over the two doors */
   projectsTitle: string;
   projectsIntro: string;
@@ -45,7 +44,6 @@ const DICT: Record<Locale, Strings> = {
       "هەر پرۆژەیەک سایتی خۆی هەیە. یەکێکیان هەڵبژێرە بۆ دەستپێکردن.",
     visit: "بچۆ بۆ سایتەکە",
     soon: "بەم زووانە",
-    eyebrow: "کوردستان",
     projectsTitle: "پرۆژەکانمان",
     projectsIntro: "دووان ئێستا کراوەن. یەکێکیان هەڵبژێرە.",
     scroll: "بڕۆ خوارەوە",
@@ -60,7 +58,6 @@ const DICT: Record<Locale, Strings> = {
     intro: "لكل مشروع موقعه الخاص. اختر واحداً للبدء.",
     visit: "زيارة الموقع",
     soon: "قريباً",
-    eyebrow: "كردستان",
     projectsTitle: "مشاريعنا",
     projectsIntro: "موقعان متاحان الآن. اختر واحداً.",
     scroll: "انزل للأسفل",
@@ -75,7 +72,6 @@ const DICT: Record<Locale, Strings> = {
     intro: "Each project has its own site. Pick one to begin.",
     visit: "Visit the site",
     soon: "Coming soon",
-    eyebrow: "Kurdistan",
     projectsTitle: "Our projects",
     projectsIntro: "Two are open today. Pick one.",
     scroll: "Scroll down",

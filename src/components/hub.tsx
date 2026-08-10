@@ -86,20 +86,13 @@ export function Hub() {
             <HubMark className="size-20 sm:size-24" />
           </motion.div>
 
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.35, duration: 0.6 }}
-            className="mt-6 text-[0.7rem] font-bold uppercase tracking-[0.35em] text-gold/70"
-          >
-            {t.eyebrow}
-          </motion.p>
-
+          {/* The name carries the page on its own; mt-6 is the spacing the
+              removed eyebrow used to hold between the mark and the name. */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.7, ease: "easeOut" }}
-            className="text-gold-gradient mt-2 text-[2.75rem] font-extrabold leading-[1.05] tracking-tight sm:text-7xl"
+            className="text-gold-gradient mt-6 text-[2.75rem] font-extrabold leading-[1.05] tracking-tight sm:text-7xl"
           >
             {t.brand}
           </motion.h1>
