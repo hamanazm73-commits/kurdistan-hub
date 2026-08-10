@@ -15,10 +15,6 @@ export interface Project {
   /** what a visitor can do there, three at most — this is a doorway, not a
       brochure, and a fourth line makes the card scroll on a phone */
   points: L[];
-  /** What the cover drawing shows, per language. The drawing itself lives in
-      `covers.tsx` — it is artwork, not data — but it still needs describing
-      for anyone who cannot see it. */
-  imageAlt: L;
   /** shown when the site isn't live yet */
   comingSoon?: boolean;
 }
@@ -35,11 +31,6 @@ export const PROJECTS: Project[] = [
     id: "hotels",
     href: "https://hotels.layhama.com",
     domain: "hotels.layhama.com",
-    imageAlt: {
-      ku: "قەڵای هەولێر و هۆتێلێکی ڕووناک لە بەردەمی",
-      ar: "قلعة أربيل وفندق مضاء أمامها",
-      en: "The Erbil citadel with a lit hotel before it",
-    },
     name: {
       ku: "هۆتێلەکانی لای حەمە",
       ar: "عند حمة للفنادق",
@@ -72,11 +63,6 @@ export const PROJECTS: Project[] = [
     id: "estate",
     href: "https://homes.layhama.com",
     domain: "homes.layhama.com",
-    imageAlt: {
-      ku: "گەڕەکێکی خانوو لە زەردەپەڕدا، چراکان داگیرساون",
-      ar: "حي من المنازل عند الغروب، والأضواء مضاءة",
-      en: "A street of houses at dusk with the lights on",
-    },
     name: {
       ku: "نووسینگەی لای حەمە",
       ar: "عند حمة للعقارات",

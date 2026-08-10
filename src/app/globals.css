@@ -88,3 +88,62 @@ body {
   50%      { transform: translateY(5px); opacity: 1; }
 }
 .rise { animation: rise 2.1s ease-in-out infinite; }
+
+/* ── The stage each project's mark stands on ─────────────────────────────
+   The logo is the picture now, so it has to earn the space a photograph
+   used to hold: a slow turning sweep of light behind it, rings breathing
+   outward, and the mark itself floating rather than sitting still. */
+
+/* A wedge of gold swept round the circle — the light source that makes the
+   badge look lit from behind instead of pasted on. */
+@keyframes sweep {
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+.sweep {
+  transform: translate(-50%, -50%) rotate(0deg);
+  animation: sweep 14s linear infinite;
+}
+
+/* Rings leaving the mark like something dropped in water. Two of them, the
+   second held back half a cycle so the stage is never empty. */
+@keyframes ripple {
+  0%   { transform: translate(-50%, -50%) scale(0.62); opacity: 0.55; }
+  70%  { opacity: 0; }
+  100% { transform: translate(-50%, -50%) scale(1.5);  opacity: 0; }
+}
+.ripple {
+  transform: translate(-50%, -50%);
+  animation: ripple 4.6s ease-out infinite;
+}
+
+/* The mark itself, never quite at rest. */
+@keyframes hover-float {
+  0%, 100% { transform: translateY(0) }
+  50%      { transform: translateY(-7px) }
+}
+.float-mark {
+  animation: hover-float 5.2s ease-in-out infinite;
+  transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+/* Pausing the float on hover is what lets the lift below actually read —
+   otherwise the keyframes keep overwriting the transform. */
+.group:hover .float-mark {
+  animation-play-state: paused;
+  transform: translateY(-7px) scale(1.07);
+}
+.group:hover .sweep { animation-duration: 6s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .sweep,
+  .ripple,
+  .float-mark,
+  .group:hover .float-mark,
+  .group:hover .sweep {
+    animation: none;
+    transform: translate(-50%, -50%);
+  }
+  .float-mark,
+  .group:hover .float-mark {
+    transform: none;
+  }
+}

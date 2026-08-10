@@ -5,10 +5,8 @@ import { ArrowLeft, ChevronDown, Globe } from "lucide-react";
 import { useI18n, LOCALES } from "@/lib/i18n";
 import { PROJECTS } from "@/lib/projects";
 import { HotelsMark, EstateMark, HubMark } from "./marks";
-import { HotelsCover, HomesCover } from "./covers";
 
 const MARKS = { hotels: HotelsMark, estate: EstateMark } as const;
-const COVERS = { hotels: HotelsCover, estate: HomesCover } as const;
 
 const WHATSAPP = "9647700572004";
 
@@ -160,7 +158,6 @@ export function Hub() {
         <div className="mx-auto mt-10 grid max-w-5xl gap-6 sm:mt-14 lg:grid-cols-2">
           {PROJECTS.map((p, i) => {
             const Mark = MARKS[p.id];
-            const Cover = COVERS[p.id];
             const live = !p.comingSoon;
             return (
               <motion.a
@@ -177,20 +174,55 @@ export function Hub() {
                     : "cursor-default opacity-70"
                 }`}
               >
-                {/* The cover, drawn for this project rather than borrowed.
-                    It needs overflow-hidden so the slow zoom stays inside the
-                    card's rounded corner — which is why the mark below is a
-                    sibling and not a child: half of it hangs past this edge,
-                    and in here that half would be clipped. */}
-                <div className="relative h-44 overflow-hidden sm:h-52">
-                  <Cover className="card-photo size-full object-cover" />
-                  {/* the drawing fades into the card rather than stopping at
-                      a hard line above the text */}
-                  <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-navy-deep to-transparent" />
+                {/* The stage the mark stands on. The logo is the picture
+                    here, so it is given the room a photograph would have had
+                    and lit from behind rather than dropped onto a flat
+                    panel. overflow-hidden keeps the sweep and the rings
+                    inside the card's rounded corner. */}
+                <div className="relative grid h-44 place-items-center overflow-hidden sm:h-52">
+                  {/* the turning wedge of light */}
                   <span
-                    aria-label={p.imageAlt[locale]}
-                    role="img"
-                    className="sr-only"
+                    aria-hidden
+                    className="sweep pointer-events-none absolute start-1/2 top-1/2 size-[26rem] rounded-full opacity-20 blur-[2px]"
+                    style={{
+                      background:
+                        "conic-gradient(from 0deg, transparent 0 58%, #DFB250 76%, transparent 88% 100%)",
+                    }}
+                  />
+                  {/* the glow it throws onto the badge */}
+                  <span
+                    aria-hidden
+                    className="pointer-events-none absolute start-1/2 top-1/2 size-56 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/12 blur-3xl rtl:translate-x-1/2"
+                  />
+                  {/* still rings, to give the moving ones something to leave */}
+                  <span
+                    aria-hidden
+                    className="pointer-events-none absolute size-36 rounded-full border border-gold/15 sm:size-40"
+                  />
+                  <span
+                    aria-hidden
+                    className="pointer-events-none absolute size-52 rounded-full border border-gold/[0.07] sm:size-56"
+                  />
+                  {/* and the ones that travel outward */}
+                  <span
+                    aria-hidden
+                    className="ripple pointer-events-none absolute start-1/2 top-1/2 size-36 rounded-full border border-gold/30 sm:size-40"
+                  />
+                  <span
+                    aria-hidden
+                    className="ripple pointer-events-none absolute start-1/2 top-1/2 size-36 rounded-full border border-gold/30 [animation-delay:2.3s] sm:size-40"
+                  />
+
+                  <Mark
+                    bare
+                    className="float-mark relative size-24 sm:size-28"
+                  />
+
+                  {/* the drawing fades into the card rather than stopping on
+                      a hard line above the text */}
+                  <span
+                    aria-hidden
+                    className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-navy-deep to-transparent"
                   />
 
                   {!live && (
@@ -200,10 +232,7 @@ export function Hub() {
                   )}
                 </div>
 
-                {/* straddling the seam between photograph and card */}
-                <Mark className="absolute start-6 top-44 size-16 -translate-y-1/2 ring-1 ring-white/10 sm:top-52 sm:size-[4.5rem]" />
-
-                <div className="flex flex-1 flex-col p-6 pt-12 sm:p-7 sm:pt-14">
+                <div className="flex flex-1 flex-col p-6 pt-1 sm:p-7 sm:pt-2">
                   <h3 className="text-xl font-extrabold leading-tight sm:text-2xl">
                     {p.name[locale]}
                   </h3>
