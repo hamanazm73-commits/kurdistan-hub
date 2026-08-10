@@ -4,8 +4,6 @@
  * motif inside changes, which is what makes them read as a family.
  */
 
-import { useId } from "react";
-
 /** The gold every mark is drawn in. The navy tile behind it is a Tailwind
  *  class on the badge, not a fill — nothing in the artwork is navy any more,
  *  because the two shapes that used to be are cut out instead. */
@@ -96,21 +94,24 @@ export function HotelsMark({ className, bare }: MarkProps) {
  * close up into a smudge, while a solid silhouette keeps its shape.
  */
 export function EstateMark({ className, bare }: MarkProps) {
-  // The door is cut out of the house rather than painted over it. Painting it
-  // navy only looks like a doorway while a navy tile sits behind the mark;
-  // knocked out, it is a hole on any background.
-  const id = useId();
+  /*
+   * The door is still a hole rather than a navy patch — painted navy it only
+   * looks like a doorway while a navy tile sits behind the mark.
+   *
+   * It is cut with `fill-rule: evenodd` and a second subpath instead of a
+   * mask: same reason as the monogram below. A `url(#…)` that a phone
+   * declines to resolve takes the whole house with it, and evenodd is
+   * resolved by the renderer with nothing to look up.
+   */
   return (
     <Badge className={className} bare={bare}>
       <Stars />
-      <mask id={`${id}-door`}>
-        <rect width="100" height="100" fill="white" />
-        <rect x="45" y="59" width="10" height="13" rx="1.4" fill="black" />
-      </mask>
       <path
-        d="M50 36 L27 55 L33 55 L33 72 L67 72 L67 55 L73 55 Z"
+        d="M50 36 L27 55 L33 55 L33 72 L67 72 L67 55 L73 55 Z
+           M46.4 59 H53.6 A1.4 1.4 0 0 1 55 60.4 V70.6 A1.4 1.4 0 0 1 53.6 72
+           H46.4 A1.4 1.4 0 0 1 45 70.6 V60.4 A1.4 1.4 0 0 1 46.4 59 Z"
         fill={GOLD}
-        mask={`url(#${id}-door)`}
+        fillRule="evenodd"
       />
     </Badge>
   );
@@ -120,28 +121,28 @@ export function EstateMark({ className, bare }: MarkProps) {
  * Lay Hama itself: an L and an H woven together.
  *
  * Drawn rather than typeset, so the two letters can share a plane instead of
- * standing side by side — the L's foot crosses over the H's stem, and the
- * short navy stroke is the gap that reads as one passing under the other.
- * Order matters: the H, then the gap, then the L on top.
+ * standing side by side — the L's foot crosses the H's stem, and the break in
+ * that stem is what reads as one letter passing under the other.
  */
 export function HubMark({ className, bare }: MarkProps) {
-  // The gap where the L crosses the H is cut out of the H, not painted over
-  // it — same reason as the door above.
-  const id = useId();
+  /*
+   * No mask, and that is the point.
+   *
+   * The H used to be drawn full height and have its lower left stem cut away
+   * by `mask="url(#…)"`, so the L could pass in front of it. When a browser
+   * fails to resolve that reference — which happened intermittently on
+   * phones, and came back on a refresh — the whole masked group vanishes and
+   * the logo is left as a bare L.
+   *
+   * The stem simply stops short instead. It ends at 59.5 so its round cap
+   * finishes at 62, exactly where the mask used to cut, and the gap before
+   * the L's foot is the same gap it always was. Nothing here refers to
+   * anything by id, so there is nothing left to fail to resolve.
+   */
   return (
     <Badge className={className} bare={bare}>
-      <mask id={`${id}-gap`}>
-        <rect width="100" height="100" fill="white" />
-        <path d="M48 62 V72" stroke="black" strokeWidth="11" />
-      </mask>
-      <g
-        stroke={GOLD}
-        strokeWidth="5"
-        strokeLinecap="round"
-        fill="none"
-        mask={`url(#${id}-gap)`}
-      >
-        <path d="M48 38 V68" />
+      <g stroke={GOLD} strokeWidth="5" strokeLinecap="round" fill="none">
+        <path d="M48 38 V59.5" />
         <path d="M67 38 V68" />
         <path d="M48 53 H67" />
       </g>
