@@ -51,7 +51,7 @@ export function organizationJsonLd(name: string, description: string) {
     "@type": "Organization",
     "@id": `${SITE_URL}/#organization`,
     name,
-    alternateName: ["Lay Hama", "عند حمة", "لای حەمە"],
+    alternateName: ["Lay Hama", "يم حمة", "عند حمة", "لای حەمە"],
     url: SITE_URL,
     logo: `${SITE_URL}/icon.svg`,
     image: `${SITE_URL}/opengraph-image`,

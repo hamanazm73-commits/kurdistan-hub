@@ -24,9 +24,11 @@ const COPY: Record<
   { title: string; description: string; ogLocale: string }
 > = {
   ar: {
-    title: "عند حمة — فنادق وعقارات في كردستان",
+    // The name is the Iraqi one now; the nouns stay standard, because فنادق
+    // and عقارات are what gets typed into Google either way.
+    title: "يم حمة — فنادق وعقارات في كردستان",
     description:
-      "عند حمة للفنادق وعند حمة للعقارات — كل خدماتنا في مكان واحد. احجز فندقاً أو ابحث عن منزل أو شقة أو أرض في أربيل والسليمانية ودهوك وكركوك.",
+      "يم حمة للفنادق ويم حمة للعقارات — كل خدماتنا بمكان واحد. احجز فندق، أو دوّر على بيت أو شقة أو أرض بأربيل والسليمانية ودهوك وكركوك.",
     ogLocale: "ar_IQ",
   },
   en: {

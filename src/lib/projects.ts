@@ -33,7 +33,7 @@ export const PROJECTS: Project[] = [
     domain: "hotels.layhama.com",
     name: {
       ku: "هۆتێلەکانی لای حەمە",
-      ar: "عند حمة للفنادق",
+      ar: "يم حمة للفنادق",
       en: "Lay Hama Hotels",
     },
     tagline: {
@@ -65,7 +65,7 @@ export const PROJECTS: Project[] = [
     domain: "homes.layhama.com",
     name: {
       ku: "نووسینگەی لای حەمە",
-      ar: "عند حمة للعقارات",
+      ar: "يم حمة للعقارات",
       en: "Lay Hama Homes",
     },
     tagline: {
