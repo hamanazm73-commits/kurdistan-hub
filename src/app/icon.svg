@@ -1,0 +1,17 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="لای حەمە">
+  <rect width="100" height="100" rx="22" fill="#15304A"/>
+  <g transform="translate(50 50) scale(0.86) translate(-50 -50)">
+    <circle cx="50" cy="50" r="43" fill="none" stroke="#DFB250" stroke-width="3"/>
+    <circle cx="50" cy="50" r="37" fill="none" stroke="#DFB250" stroke-width="1.2"/>
+    <g stroke="#DFB250" stroke-width="6" stroke-linecap="round" fill="none">
+      <path d="M48 38 V68"/>
+      <path d="M67 38 V68"/>
+      <path d="M48 53 H67"/>
+    </g>
+    <path d="M48 61 V73" stroke="#15304A" stroke-width="13"/>
+    <g stroke="#DFB250" stroke-width="6" stroke-linecap="round" fill="none">
+      <path d="M33 32 V67"/>
+      <path d="M33 67 H54"/>
+    </g>
+  </g>
+</svg>
