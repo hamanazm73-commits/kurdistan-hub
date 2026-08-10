@@ -50,8 +50,8 @@ const DICT: Record<Locale, Strings> = {
     rights: "هەموو مافەکان پارێزراون",
   },
   ar: {
-    brand: "عند حمة",
-    tagline: "ماذا لدى عند حمة؟",
+    brand: "يم حمة",
+    tagline: "شنو أكو يم حمة؟",
     visit: "زيارة الموقع",
     soon: "قريباً",
     projectsTitle: "مشاريعنا",

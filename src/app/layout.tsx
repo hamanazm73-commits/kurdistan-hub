@@ -15,13 +15,13 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   // Each page sets its own title in its own language; this is only the
   // fallback if one ever forgets to.
-  title: "لای حەمە · عند حمة · Lay Hama",
+  title: "لای حەمە · يم حمة · Lay Hama",
   description:
     "هۆتێلەکانی لای حەمە و نووسینگەی لای حەمە — هەموو خزمەتگوزارییەکانمان لە یەک شوێن. الفنادق والعقارات في كردستان · Hotels and homes across Kurdistan.",
   applicationName: "Lay Hama",
   keywords: [
     "لای حەمە", "هۆتێل", "خانووبەرە", "هەولێر", "سلێمانی", "دهۆک", "کەرکووک",
-    "عند حمة", "فنادق", "عقارات", "كردستان", "أربيل",
+    "يم حمة", "عند حمة", "فنادق", "عقارات", "كردستان", "أربيل",
     "Lay Hama", "hotels", "real estate", "Kurdistan", "Erbil", "Iraq",
   ],
   openGraph: { siteName: "Lay Hama", type: "website" },
