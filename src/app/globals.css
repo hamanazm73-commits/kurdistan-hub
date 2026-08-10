@@ -35,10 +35,40 @@ body {
 }
 .group:hover .sheen { animation: sheen 1.1s ease-out; }
 
+/* The hero photograph, breathing.
+   A still mountain behind a still logo reads as a picture someone pasted in.
+   Half a minute per cycle is slow enough that nobody catches it moving — they
+   only notice that the screen is alive. It starts scaled past 1 so the edges
+   never come into view as it drifts. */
+@keyframes hero-pan {
+  0%,
+  100% { transform: scale(1.06) translate3d(0, 0, 0); }
+  50%  { transform: scale(1.14) translate3d(-1.5%, -1%, 0); }
+}
+.hero-pan {
+  animation: hero-pan 34s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* A band of light travelling through the letters of the name.
+   The gold gradient is already there; widening it past the text box and
+   moving it is what turns a painted gradient into a lit one. It rests for
+   most of the cycle so the movement is an occasional glint, not a shimmer. */
+@keyframes gold-sweep {
+  0%   { background-position: 190% 0; }
+  45%  { background-position: -70% 0; }
+  100% { background-position: -70% 0; }
+}
+.gold-sweep {
+  animation: gold-sweep 7.5s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .drift-a,
   .drift-b,
   .group:hover .sheen,
+  .hero-pan,
+  .gold-sweep,
   .rise {
     animation: none;
   }
@@ -58,6 +88,13 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+
+/* Has to come after the rule above: that one sets `background`, the shorthand,
+   which resets background-size to auto. With the gradient exactly filling the
+   text there is nothing for the sweep to move. */
+.text-gold-gradient.gold-sweep {
+  background-size: 250% 100%;
 }
 
 /* A film of noise over the photographs. Large flat areas of a compressed

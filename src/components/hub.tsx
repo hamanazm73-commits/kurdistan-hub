@@ -34,11 +34,11 @@ export function Hub() {
       <section className="relative flex min-h-dvh flex-col overflow-hidden">
         {/* the photograph, and the dark it has to sink into so text can live
             on top of it at any size */}
-        <div aria-hidden className="absolute inset-0">
+        <div aria-hidden className="grain absolute inset-0">
           <img
             src={HERO_IMAGE}
             alt=""
-            className="size-full object-cover"
+            className="hero-pan size-full object-cover"
             fetchPriority="high"
           />
           <div className="absolute inset-0 bg-navy-deep/72" />
@@ -82,8 +82,14 @@ export function Hub() {
             initial={{ scale: 0, rotate: -18 }}
             animate={{ scale: 1, rotate: 0 }}
             transition={{ delay: 0.1, type: "spring", stiffness: 190, damping: 14 }}
+            className="relative"
           >
-            <HubMark className="size-20 sm:size-24" />
+            {/* the mark sits in its own light rather than on the photograph */}
+            <span
+              aria-hidden
+              className="pointer-events-none absolute left-1/2 top-1/2 size-44 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/25 blur-[55px] sm:size-56"
+            />
+            <HubMark className="relative size-20 sm:size-24" />
           </motion.div>
 
           {/* The name carries the page on its own; mt-6 is the spacing the
@@ -92,7 +98,7 @@ export function Hub() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.7, ease: "easeOut" }}
-            className="text-gold-gradient mt-6 text-[2.75rem] font-extrabold leading-[1.05] tracking-tight sm:text-7xl"
+            className="text-gold-gradient gold-sweep mt-6 text-[2.75rem] font-extrabold leading-[1.05] tracking-tight sm:text-7xl"
           >
             {t.brand}
           </motion.h1>
