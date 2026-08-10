@@ -25,6 +25,11 @@ export const metadata: Metadata = {
     "Lay Hama", "hotels", "real estate", "Kurdistan", "Erbil", "Iraq",
   ],
   openGraph: { siteName: "Lay Hama", type: "website" },
+  // Bing keeps its own register and never reads Google's. Left in the code
+  // rather than in DNS so it stays visible to whoever looks next.
+  verification: {
+    other: { "msvalidate.01": "1B8DBC2E5AA5290EFB64709BC7C5C479" },
+  },
   robots: {
     index: true,
     follow: true,
