@@ -93,7 +93,15 @@ export function Hub() {
               aria-hidden
               className="pointer-events-none absolute left-1/2 top-1/2 size-44 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/25 blur-[55px] sm:size-56"
             />
-            <HubMark className="relative size-20 sm:size-24" />
+            {/* No navy tile. On the cards the tile gives the mark a panel to
+                stand on; over a photograph it reads as a sticker pasted on.
+                Bare, the mountains show through the rings. Larger too, and
+                the shadow is what keeps it off the ridgeline now that there
+                is no tile to separate it. */}
+            <HubMark
+              bare
+              className="relative size-[3.5rem] drop-shadow-[0_2px_12px_rgba(0,0,0,0.55)] sm:size-[4.5rem]"
+            />
           </motion.div>
 
           {/* The name, a word at a time.
@@ -108,7 +116,7 @@ export function Hub() {
               until the name looks cramped. Size carries the weight instead —
               500 is also a weight the Arabic face actually ships, so nothing
               is synthesised. */}
-          <h1 className="mt-6 flex flex-wrap justify-center gap-x-[0.28em] text-[2.9rem] font-medium leading-[1.18] sm:text-7xl">
+          <h1 className="mt-6 flex flex-wrap justify-center gap-x-[0.28em] font-[family-name:var(--font-display)] text-[2.6rem] leading-[1.5] sm:text-[3.9rem]">
             {t.brand.split(" ").map((word, i) => (
               <motion.span
                 key={i}
@@ -160,7 +168,7 @@ export function Hub() {
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.78, duration: 0.6 }}
-            className="mt-5 max-w-lg text-balance text-base font-normal leading-relaxed text-white/70 sm:text-xl"
+            className="mt-5 max-w-lg text-balance text-lg font-normal leading-relaxed text-white/70 sm:text-2xl"
           >
             {t.tagline}
           </motion.p>

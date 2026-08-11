@@ -1,5 +1,9 @@
 import type { Metadata, Viewport } from "next";
-import { Noto_Naskh_Arabic, Plus_Jakarta_Sans } from "next/font/google";
+import {
+  Aref_Ruqaa,
+  Noto_Naskh_Arabic,
+  Plus_Jakarta_Sans,
+} from "next/font/google";
 import "./globals.css";
 import { I18nProvider } from "@/lib/i18n";
 import { SITE_URL } from "@/lib/seo";
@@ -9,6 +13,22 @@ const arabic = Noto_Naskh_Arabic({
   variable: "--font-arabic",
   subsets: ["arabic"],
   weight: ["400", "500", "700"],
+});
+
+/**
+ * The brand name only, never body text.
+ *
+ * Ruqaa is a handwritten script — beautiful for a name and exhausting for a
+ * paragraph. Naskh above stays the reading face; this is here so the one
+ * word a visitor is meant to remember is drawn rather than typed.
+ */
+const display = Aref_Ruqaa({
+  variable: "--font-display",
+  // Latin as well as Arabic: the English page sets the same heading in
+  // Latin letters, and without it that one word would drop to a fallback
+  // face while the other two languages kept the script.
+  subsets: ["arabic", "latin"],
+  weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {
@@ -44,7 +64,9 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="ku" dir="rtl" suppressHydrationWarning>
-      <body className={`${sans.variable} ${arabic.variable} min-h-dvh antialiased`}>
+      <body
+        className={`${sans.variable} ${arabic.variable} ${display.variable} min-h-dvh antialiased`}
+      >
         <I18nProvider>{children}</I18nProvider>
       </body>
     </html>
