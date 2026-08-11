@@ -108,10 +108,20 @@ export function Hub() {
               until the name looks cramped. Size carries the weight instead —
               500 is also a weight the Arabic face actually ships, so nothing
               is synthesised. */}
-          <h1 className="text-gold-gradient gold-sweep mt-6 flex flex-wrap justify-center gap-x-[0.28em] text-[2.9rem] font-medium leading-[1.18] sm:text-7xl">
+          <h1 className="mt-6 flex flex-wrap justify-center gap-x-[0.28em] text-[2.9rem] font-medium leading-[1.18] sm:text-7xl">
             {t.brand.split(" ").map((word, i) => (
               <motion.span
                 key={i}
+                /* The gradient goes on the word, not on the h1.
+                   `text-gold-gradient` paints by setting the text transparent
+                   and clipping a background to the glyphs. A child inherits
+                   the transparent colour but not the background, and the
+                   `filter` this animation leaves behind gives the span its own
+                   paint context, so the parent's clip can no longer reach it —
+                   the word ends up transparent over transparent, and the name
+                   disappears off the page. Each word carrying its own
+                   background is what keeps it painted. */
+                className="text-gold-gradient gold-sweep"
                 initial={{ opacity: 0, y: 26, filter: "blur(8px)" }}
                 animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                 transition={{
