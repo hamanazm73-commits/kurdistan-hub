@@ -100,7 +100,7 @@ export function Hub() {
                 is no tile to separate it. */}
             <HubMark
               bare
-              className="relative size-[3.5rem] drop-shadow-[0_2px_12px_rgba(0,0,0,0.55)] sm:size-[4.5rem]"
+              className="relative size-[5rem] drop-shadow-[0_3px_16px_rgba(0,0,0,0.55)] sm:size-[7rem]"
             />
           </motion.div>
 
@@ -116,7 +116,11 @@ export function Hub() {
               until the name looks cramped. Size carries the weight instead —
               500 is also a weight the Arabic face actually ships, so nothing
               is synthesised. */}
-          <h1 className="mt-6 flex flex-wrap justify-center gap-x-[0.28em] font-[family-name:var(--font-display)] text-[2.6rem] leading-[1.5] sm:text-[3.9rem]">
+          {/* Ruqaa sets narrow — at 62px the whole name measured 180px across
+              a 1600px screen, which reads as small however large the number
+              looks. The sizes here are chosen against the rendered width, not
+              the font size. */}
+          <h1 className="mt-6 flex flex-wrap justify-center gap-x-[0.28em] font-[family-name:var(--font-display)] text-[4rem] leading-[1.45] sm:text-[7rem]">
             {t.brand.split(" ").map((word, i) => (
               <motion.span
                 key={i}
