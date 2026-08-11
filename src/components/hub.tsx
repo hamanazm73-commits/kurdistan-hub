@@ -98,9 +98,13 @@ export function Hub() {
                 Bare, the mountains show through the rings. Larger too, and
                 the shadow is what keeps it off the ridgeline now that there
                 is no tile to separate it. */}
+            {/* Sized on Tailwind's own scale, not an arbitrary value.
+                `size-[5rem]` produced no rule at all here and the mark
+                collapsed to nothing — the card marks next to it use the
+                scale and render, which is what gave it away. */}
             <HubMark
               bare
-              className="relative size-[5rem] drop-shadow-[0_3px_16px_rgba(0,0,0,0.55)] sm:size-[7rem]"
+              className="relative size-24 drop-shadow-2xl sm:size-32"
             />
           </motion.div>
 
