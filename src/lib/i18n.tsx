@@ -26,7 +26,6 @@ interface Strings {
   /** the small line above the brand, where a masthead would sit */
   /** heading over the two doors */
   projectsTitle: string;
-  projectsIntro: string;
   /** the hint at the foot of the first screen */
   scroll: string;
   contactTitle: string;
@@ -42,7 +41,6 @@ const DICT: Record<Locale, Strings> = {
     visit: "بچۆ بۆ سایتەکە",
     soon: "بەم زووانە",
     projectsTitle: "پرۆژەکانمان",
-    projectsIntro: "دووان ئێستا کراوەن. یەکێکیان هەڵبژێرە.",
     scroll: "بڕۆ خوارەوە",
     contactTitle: "پرسیارت هەیە؟",
     contactBody: "بە واتساپ پەیوەندیمان پێوە بکە — بە کوردی وەڵامت دەدەینەوە.",
@@ -55,7 +53,6 @@ const DICT: Record<Locale, Strings> = {
     visit: "زيارة الموقع",
     soon: "قريباً",
     projectsTitle: "مشاريعنا",
-    projectsIntro: "موقعان متاحان الآن. اختر واحداً.",
     scroll: "انزل للأسفل",
     contactTitle: "لديك سؤال؟",
     contactBody: "راسلنا على واتساب — نرد عليك بسرعة.",
@@ -68,7 +65,6 @@ const DICT: Record<Locale, Strings> = {
     visit: "Visit the site",
     soon: "Coming soon",
     projectsTitle: "Our projects",
-    projectsIntro: "Two are open today. Pick one.",
     scroll: "Scroll down",
     contactTitle: "A question?",
     contactBody: "Message us on WhatsApp — we answer quickly.",

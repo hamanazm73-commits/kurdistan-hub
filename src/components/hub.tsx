@@ -173,12 +173,12 @@ export function Hub() {
       {/* ─────────────────────────── the two doors ─────────────────────────── */}
       <section id="projects" className="relative px-5 pb-20 pt-4 sm:pt-10">
         <motion.div {...reveal} transition={{ duration: 0.6 }} className="text-center">
+          {/* The heading stands alone. The line under it counted the cards
+              and told the reader to pick one, which the two cards directly
+              below already say better than a sentence can. */}
           <h2 className="text-2xl font-extrabold tracking-tight sm:text-4xl">
             {t.projectsTitle}
           </h2>
-          <p className="mx-auto mt-2.5 max-w-sm text-sm leading-relaxed text-white/45">
-            {t.projectsIntro}
-          </p>
         </motion.div>
 
         <div className="mx-auto mt-10 grid max-w-5xl gap-6 sm:mt-14 lg:grid-cols-2">
