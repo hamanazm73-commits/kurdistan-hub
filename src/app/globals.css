@@ -12,6 +12,17 @@ body {
   background: var(--color-navy-deep);
   color: #f8fafc;
   -webkit-font-smoothing: antialiased;
+  /*
+    The three faces the layout loads were being downloaded and then ignored:
+    next/font only publishes them as CSS variables, and nothing ever named
+    them in a font-family, so every word on the site was drawn in the
+    browser's system font.
+
+    Latin first, Arabic second, on purpose. Fallback happens per glyph, and
+    Jakarta carries no Arabic — so Latin words take Jakarta and Kurdish and
+    Arabic fall through to Naskh, which is what each was chosen for.
+  */
+  font-family: var(--font-sans), var(--font-arabic), system-ui, sans-serif;
 }
 
 /* The light that moves behind everything. Long, offset durations so the two

@@ -364,13 +364,20 @@ export function Hub() {
                 would rather write from their own mail app needs to be able
                 to read it and copy it, and seeing it spelled out is also
                 what makes the domain feel like a place with people in it. */}
+            {/* Set in the brand's own face rather than font-mono. Nothing
+                here declares a monospace family, so that class fell through
+                to whatever the browser keeps for code — Courier on most
+                Windows machines — and an address typeset in Courier reads
+                like a config file, not like a way to reach someone. */}
             <a
               href={`mailto:${EMAIL}`}
               dir="ltr"
-              className="mt-5 flex items-center justify-center gap-2 text-sm text-white/45 transition-colors hover:text-gold"
+              className="mt-5 inline-flex items-center gap-2.5 rounded-full border border-white/12 bg-white/[0.04] py-2.5 ps-4 pe-4 text-white/75 transition-colors hover:border-gold/55 hover:bg-gold/10 hover:text-white"
             >
-              <Mail className="size-4 shrink-0" aria-hidden />
-              <span className="font-mono">{EMAIL}</span>
+              <Mail className="size-4 shrink-0 text-gold" aria-hidden />
+              <span className="text-[0.9rem] font-medium tracking-[0.015em]">
+                {EMAIL}
+              </span>
             </a>
           </div>
         </motion.div>
