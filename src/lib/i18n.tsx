@@ -37,7 +37,7 @@ interface Strings {
 const DICT: Record<Locale, Strings> = {
   ku: {
     brand: "لای حەمە",
-    tagline: "هۆتێل و خانوو لە هەموو شارەکانی کوردستان",
+    tagline: "لای حەمە چی هەیە؟",
     visit: "بچۆ بۆ سایتەکە",
     soon: "بەم زووانە",
     projectsTitle: "پرۆژەکانمان",
@@ -49,7 +49,7 @@ const DICT: Record<Locale, Strings> = {
   },
   ar: {
     brand: "يم حمة",
-    tagline: "فنادق وبيوت بكل مدن كردستان",
+    tagline: "شنو أكو يم حمة؟",
     visit: "زيارة الموقع",
     soon: "قريباً",
     projectsTitle: "مشاريعنا",
@@ -61,7 +61,7 @@ const DICT: Record<Locale, Strings> = {
   },
   en: {
     brand: "Lay Hama",
-    tagline: "Hotels and homes across Kurdistan",
+    tagline: "What is there at Lay Hama?",
     visit: "Visit the site",
     soon: "Coming soon",
     projectsTitle: "Our projects",
