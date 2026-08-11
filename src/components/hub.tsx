@@ -93,7 +93,15 @@ export function Hub() {
               aria-hidden
               className="pointer-events-none absolute left-1/2 top-1/2 size-44 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/25 blur-[55px] sm:size-56"
             />
-            <HubMark className="relative size-20 sm:size-24" />
+            {/* No navy tile here. On the cards the tile gives the mark a panel
+                to stand on; over a photograph it reads as a sticker cut from
+                somewhere else and pasted on. Bare, the mountains show through
+                the rings and the emblem belongs to the picture. It runs larger
+                to hold the same weight without the tile behind it. */}
+            <HubMark
+              bare
+              className="relative size-24 drop-shadow-[0_2px_16px_rgba(0,0,0,0.55)] sm:size-28"
+            />
           </motion.div>
 
           {/* The name, a word at a time.
