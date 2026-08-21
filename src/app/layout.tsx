@@ -7,6 +7,7 @@ import {
 import "./globals.css";
 import { I18nProvider } from "@/lib/i18n";
 import { SITE_URL } from "@/lib/seo";
+import { Analytics } from "@vercel/analytics/next";
 
 const sans = Plus_Jakarta_Sans({ variable: "--font-sans", subsets: ["latin"] });
 const arabic = Noto_Naskh_Arabic({
@@ -68,6 +69,14 @@ export default function RootLayout({
         className={`${sans.variable} ${arabic.variable} ${display.variable} min-h-dvh antialiased`}
       >
         <I18nProvider>{children}</I18nProvider>
+        {/*
+          How many people actually come.
+          Counts a page view and nothing else — no cookie, no identifier, no
+          profile, so there is nothing to put a consent banner in front of.
+          Turn it on per project at Vercel > Analytics; until then this sends
+          nothing and costs nothing.
+        */}
+        <Analytics />
       </body>
     </html>
   );
