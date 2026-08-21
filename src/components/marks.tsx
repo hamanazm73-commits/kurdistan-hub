@@ -7,7 +7,7 @@
 /** The gold every mark is drawn in. The navy tile behind it is a Tailwind
  *  class on the badge, not a fill — nothing in the artwork is navy any more,
  *  because the two shapes that used to be are cut out instead. */
-const GOLD = "#DFB250";
+const GOLD = "#e7ba54";
 
 /** The star, drawn with its tip at (50,20) and centre near (50,27.5). */
 const STAR_D =
@@ -50,7 +50,7 @@ function Badge({
   return (
     <span
       className={`grid shrink-0 place-items-center ${
-        bare ? "" : "overflow-hidden rounded-2xl bg-[#15304A] shadow-lg"
+        bare ? "" : "overflow-hidden rounded-2xl bg-[#141926] shadow-lg"
       } ${className ?? ""}`}
     >
       <svg

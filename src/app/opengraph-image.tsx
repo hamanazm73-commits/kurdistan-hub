@@ -11,7 +11,7 @@ export const contentType = "image/png";
  * Latin anyway.
  */
 export default function OgImage() {
-  const GOLD = "#DFB250";
+  const GOLD = "#e7ba54";
   const STAR =
     "M50 20 l2.3 4.8 5.3.8-3.8 3.7 1 5.3-4.8-2.5-4.8 2.5 1-5.3-3.8-3.7 5.3-.8Z";
 
@@ -28,7 +28,7 @@ export default function OgImage() {
           fontFamily: "sans-serif",
           color: "white",
           background:
-            "linear-gradient(150deg, #06121f 0%, #0a1a2b 55%, #14304a 100%)",
+            "linear-gradient(150deg, #0b0f19 0%, #141926 55%, #1f2635 100%)",
         }}
       >
         {/* the monogram, drawn rather than imported */}
@@ -85,7 +85,7 @@ export default function OgImage() {
                 gap: 10,
                 fontSize: 22,
                 color: "rgba(255,255,255,0.6)",
-                border: "1px solid rgba(223,178,80,0.35)",
+                border: "1px solid rgba(231, 186, 84,0.35)",
                 borderRadius: 999,
                 padding: "10px 22px",
               }}

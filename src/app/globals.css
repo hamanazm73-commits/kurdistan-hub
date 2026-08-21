@@ -1,16 +1,27 @@
 @import "tailwindcss";
 
+/*
+ * The same navy and the same gold as the three sister sites.
+ *
+ * These were mixed separately and drifted: the lightness matched almost
+ * exactly, but the hue sat fourteen degrees colder, so this page read as a
+ * bluer navy beside the others. Taken from their dark palette now, value for
+ * value, and written in oklch for the same reason they are — the numbers can
+ * be compared by eye.
+ */
 @theme {
-  --color-navy: #0a1a2b;
-  --color-navy-deep: #06121f;
-  --color-gold: #dfb250;
-  --color-gold-soft: #f0cd8a;
+  --color-navy: oklch(0.215 0.026 265);
+  --color-navy-deep: oklch(0.17 0.022 265);
+  --color-navy-soft: oklch(0.27 0.03 265);
+  --color-gold: oklch(0.81 0.13 85);
+  --color-gold-soft: oklch(0.88 0.09 85);
+  --color-gold-foreground: oklch(0.2 0.03 265);
 }
 
 html,
 body {
   background: var(--color-navy-deep);
-  color: #f8fafc;
+  color: oklch(0.96 0.01 85);
   -webkit-font-smoothing: antialiased;
   /*
     The three faces the layout loads were being downloaded and then ignored:

@@ -71,7 +71,7 @@ export function Hub() {
                 onClick={() => setLocale(l.id)}
                 className={`rounded-full px-3 py-1.5 text-[0.8rem] font-semibold transition-colors sm:px-3.5 sm:text-sm ${
                   locale === l.id
-                    ? "bg-gold text-[#122b45]"
+                    ? "bg-gold text-[#0f1624]"
                     : "text-white/60 hover:text-white"
                 }`}
               >
@@ -238,7 +238,7 @@ export function Hub() {
                     className="sweep pointer-events-none absolute start-1/2 top-1/2 size-[26rem] rounded-full opacity-20 blur-[2px]"
                     style={{
                       background:
-                        "conic-gradient(from 0deg, transparent 0 58%, #DFB250 76%, transparent 88% 100%)",
+                        "conic-gradient(from 0deg, transparent 0 58%, #e7ba54 76%, transparent 88% 100%)",
                     }}
                   />
                   {/* the glow it throws onto the badge */}
@@ -313,7 +313,7 @@ export function Hub() {
                   </ul>
 
                   {live && (
-                    <span className="mt-6 inline-flex w-fit items-center gap-2 rounded-full bg-gold px-5 py-2.5 text-sm font-bold text-[#122b45] shadow-lg shadow-black/30 transition-all group-hover:gap-3.5">
+                    <span className="mt-6 inline-flex w-fit items-center gap-2 rounded-full bg-gold px-5 py-2.5 text-sm font-bold text-[#0f1624] shadow-lg shadow-black/30 transition-all group-hover:gap-3.5">
                       {t.visit}
                       <ArrowLeft
                         className={`size-4 ${dir === "ltr" ? "rotate-180" : ""}`}
@@ -336,7 +336,7 @@ export function Hub() {
         >
           <div
             aria-hidden
-            className="pointer-events-none absolute inset-0 [background:radial-gradient(ellipse_70%_100%_at_50%_0%,rgba(223,178,80,0.12),transparent_70%)]"
+            className="pointer-events-none absolute inset-0 [background:radial-gradient(ellipse_70%_100%_at_50%_0%,rgba(231, 186, 84,0.12),transparent_70%)]"
           />
           <div className="relative">
             <h3 className="text-lg font-bold sm:text-xl">{t.contactTitle}</h3>
