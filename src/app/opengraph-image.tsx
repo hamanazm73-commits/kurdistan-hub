@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Lay Hama — Hotels and homes across Kurdistan";
+export const alt = "Lay Hama — Hotels, homes and shops across Kurdistan";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -71,12 +71,12 @@ export default function OgImage() {
             color: "rgba(255,255,255,0.72)",
           }}
         >
-          Hotels and homes across Kurdistan
+          Hotels, homes and shops across Kurdistan
         </div>
 
-        {/* the two doors this one opens onto */}
+        {/* the three doors this one opens onto */}
         <div style={{ display: "flex", gap: 18, marginTop: 40 }}>
-          {["hotels.layhama.com", "homes.layhama.com"].map((d) => (
+          {["hotels.layhama.com", "homes.layhama.com", "shops.layhama.com"].map((d) => (
             <div
               key={d}
               style={{

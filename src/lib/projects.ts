@@ -5,7 +5,7 @@ export type L = Record<Locale, string>;
 
 export interface Project {
   /** stable key, also the React key and the mark to draw */
-  id: "hotels" | "estate";
+  id: "hotels" | "estate" | "shops";
   href: string;
   /** the bare address, shown as a small chip — it tells a visitor where the
       button is about to take them before they press it */
@@ -88,6 +88,38 @@ export const PROJECTS: Project[] = [
         ku: "ڕاستەوخۆ پەیوەندی بە خاوەنەکەیەوە بکە",
         ar: "تواصل مباشرة مع المالك",
         en: "Reach the owner directly",
+      },
+    ],
+  },
+  {
+    id: "shops",
+    href: "https://shops.layhama.com",
+    domain: "shops.layhama.com",
+    name: {
+      ku: "لای حەمە بیدۆزەوە",
+      ar: "يم حمة للمحلات",
+      en: "Lay Hama Shops",
+    },
+    tagline: {
+      ku: "نووسین لە تۆ، گەڕان و دۆزینەوە لە ئێمە",
+      ar: "اكتب ما تريد، ونحن نجد المحل",
+      en: "Name the thing, we find the shop",
+    },
+    points: [
+      {
+        ku: "بە شتەکە بگەڕێ، نەک بە ناوی دووکان",
+        ar: "ابحث عن الشيء نفسه، لا عن اسم المحل",
+        en: "Search for the thing, not the shop's name",
+      },
+      {
+        ku: "یەکەم دووکانەکانی شارەکەی خۆت",
+        ar: "محلات مدينتك أولاً",
+        en: "Your own city first",
+      },
+      {
+        ku: "ژمارە و ناونیشان و کاتی کردنەوە",
+        ar: "الهاتف والعنوان وساعات العمل",
+        en: "The number, the address and the hours",
       },
     ],
   },

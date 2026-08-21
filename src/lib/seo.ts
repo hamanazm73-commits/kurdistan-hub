@@ -3,9 +3,10 @@ import type { Locale } from "./locales";
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") || "https://layhama.com";
 
-/** The two sites this doorway opens onto. */
+/** The three sites this doorway opens onto. */
 export const HOTELS_URL = "https://hotels.layhama.com";
 export const HOMES_URL = "https://homes.layhama.com";
+export const SHOPS_URL = "https://shops.layhama.com";
 
 /** Kurdish sits at the root; the other two live behind a prefix. */
 export function urlFor(locale: Locale, path = "/"): string {
@@ -38,11 +39,11 @@ export function alternatesFor(locale: Locale, path = "/") {
 }
 
 /**
- * The business, and the fact that the other two sites are the same business.
+ * The business, and the fact that the other three sites are the same business.
  *
  * This is the part worth having here. On its own each domain looks like an
  * unrelated site; `subOrganization` and the matching `parentOrganization` on
- * the children are what let a search engine treat three domains as one brand,
+ * the children are what let a search engine treat four domains as one brand,
  * so a search for the name can surface whichever of them answers it.
  */
 export function organizationJsonLd(name: string, description: string) {
@@ -74,7 +75,13 @@ export function organizationJsonLd(name: string, description: string) {
         url: HOMES_URL,
         parentOrganization: { "@id": `${SITE_URL}/#organization` },
       },
+      {
+        "@type": "Organization",
+        name: "Lay Hama Shops",
+        url: SHOPS_URL,
+        parentOrganization: { "@id": `${SITE_URL}/#organization` },
+      },
     ],
-    sameAs: [HOTELS_URL, HOMES_URL],
+    sameAs: [HOTELS_URL, HOMES_URL, SHOPS_URL],
   };
 }

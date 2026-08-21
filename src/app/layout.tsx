@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   // fallback if one ever forgets to.
   title: "لای حەمە · يم حمة · Lay Hama",
   description:
-    "هۆتێلەکانی لای حەمە و نووسینگەی لای حەمە — هەموو خزمەتگوزارییەکانمان لە یەک شوێن. الفنادق والعقارات في كردستان · Hotels and homes across Kurdistan.",
+    "هۆتێلەکان، خانووبەرە و دووکانەکانی لای حەمە — هەموو خزمەتگوزارییەکانمان لە یەک شوێن. الفنادق والعقارات والمحلات في كردستان · Hotels, homes and shops across Kurdistan.",
   applicationName: "Lay Hama",
   keywords: [
     "لای حەمە", "هۆتێل", "خانووبەرە", "هەولێر", "سلێمانی", "دهۆک", "کەرکووک",

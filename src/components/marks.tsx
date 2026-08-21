@@ -1,5 +1,5 @@
 /**
- * The emblems, lifted from the two sites they stand for so the doorway shows
+ * The emblems, lifted from the three sites they stand for so the doorway shows
  * each project's real face. Same navy badge, same gold double ring — only the
  * motif inside changes, which is what makes them read as a family.
  */
@@ -17,7 +17,7 @@ const STAR_D =
 const placeStar = (cx: number, cy: number, s: number) =>
   `translate(${cx} ${cy}) scale(${s}) translate(-50 -27.5)`;
 
-/** The three stars both project marks wear: one leading, two smaller flanking. */
+/** The three stars every project mark wears: one leading, two smaller flanking. */
 function Stars() {
   return (
     <g fill={GOLD}>
@@ -30,7 +30,7 @@ function Stars() {
 
 /**
  * The navy field and gold double ring. Each mark supplies its own stars —
- * the two projects wear three, the monogram wears none.
+ * the three projects wear three, the monogram wears none.
  *
  * `bare` drops the navy tile and lets the ring stand on whatever is behind
  * it. On a navy page the tile reads as a square panel floating over the
@@ -110,6 +110,31 @@ export function EstateMark({ className, bare }: MarkProps) {
         d="M50 36 L27 55 L33 55 L33 72 L67 72 L67 55 L73 55 Z
            M46.4 59 H53.6 A1.4 1.4 0 0 1 55 60.4 V70.6 A1.4 1.4 0 0 1 53.6 72
            H46.4 A1.4 1.4 0 0 1 45 70.6 V60.4 A1.4 1.4 0 0 1 46.4 59 Z"
+        fill={GOLD}
+        fillRule="evenodd"
+      />
+    </Badge>
+  );
+}
+
+/**
+ * لای حەمە بیدۆزەوە — a shop front under its awning, wearing the same three
+ * stars. Filled for the reason the house is, and given a wide counter window
+ * rather than a door: at this size a tall opening reads as the house again,
+ * and an awning alone is not enough to tell the two apart.
+ */
+export function ShopsMark({ className, bare }: MarkProps) {
+  return (
+    <Badge className={className} bare={bare}>
+      <Stars />
+      {/* the awning, wider at its lip than at the wall */}
+      <path d="M27.5 51 L32.5 41 H67.5 L72.5 51 Z" fill={GOLD} />
+      {/* the front, counter punched out with evenodd — the same choice the
+          house makes, and for the same reason: nothing to fail to resolve */}
+      <path
+        d="M31.5 54 H68.5 V72 H31.5 Z
+           M37.5 59 H62.5 A1.3 1.3 0 0 1 63.8 60.3 V66 A1.3 1.3 0 0 1 62.5 67.3
+           H37.5 A1.3 1.3 0 0 1 36.2 66 V60.3 A1.3 1.3 0 0 1 37.5 59 Z"
         fill={GOLD}
         fillRule="evenodd"
       />

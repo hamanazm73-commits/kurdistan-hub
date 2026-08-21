@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Hub } from "@/components/hub";
 import { alternatesFor, organizationJsonLd } from "@/lib/seo";
 
-const TITLE = "لای حەمە — هۆتێل و خانووبەرە لە کوردستان";
+const TITLE = "لای حەمە — هۆتێل، خانووبەرە و دووکان لە کوردستان";
 const DESCRIPTION =
   "هۆتێلەکانی لای حەمە و نووسینگەی لای حەمە — هەموو خزمەتگوزارییەکانمان لە یەک شوێن. هۆتێل حیجز بکە، یان خانوو، شوقە و زەوی بدۆزەرەوە لە هەولێر، سلێمانی، دهۆک و کەرکووک.";
 

@@ -4,9 +4,9 @@ import { motion } from "motion/react";
 import { ArrowLeft, ChevronDown, Globe, Mail } from "lucide-react";
 import { useI18n, LOCALES } from "@/lib/i18n";
 import { PROJECTS } from "@/lib/projects";
-import { HotelsMark, EstateMark, HubMark } from "./marks";
+import { HotelsMark, EstateMark, ShopsMark, HubMark } from "./marks";
 
-const MARKS = { hotels: HotelsMark, estate: EstateMark } as const;
+const MARKS = { hotels: HotelsMark, estate: EstateMark, shops: ShopsMark } as const;
 
 const WHATSAPP = "9647700572004";
 
@@ -207,7 +207,7 @@ export function Hub() {
           </h2>
         </motion.div>
 
-        <div className="mx-auto mt-10 grid max-w-5xl gap-6 sm:mt-14 lg:grid-cols-2">
+        <div className="mx-auto mt-10 grid max-w-6xl gap-6 sm:mt-14 lg:grid-cols-3">
           {PROJECTS.map((p, i) => {
             const Mark = MARKS[p.id];
             const live = !p.comingSoon;

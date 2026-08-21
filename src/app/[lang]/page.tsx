@@ -26,13 +26,13 @@ const COPY: Record<
   ar: {
     // The name is the Iraqi one now; the nouns stay standard, because فنادق
     // and عقارات are what gets typed into Google either way.
-    title: "يم حمة — فنادق وعقارات في كردستان",
+    title: "يم حمة — فنادق وعقارات ومحلات في كردستان",
     description:
       "يم حمة للفنادق ويم حمة للعقارات — كل خدماتنا بمكان واحد. احجز فندق، أو دوّر على بيت أو شقة أو أرض بأربيل والسليمانية ودهوك وكركوك.",
     ogLocale: "ar_IQ",
   },
   en: {
-    title: "Lay Hama — Hotels and homes across Kurdistan",
+    title: "Lay Hama — Hotels, homes and shops across Kurdistan",
     description:
       "Lay Hama Hotels and Lay Hama Homes — everything we build, in one place. Book a hotel, or find a house, flat or plot of land across Erbil, Sulaymaniyah, Duhok and Kirkuk.",
     ogLocale: "en_US",

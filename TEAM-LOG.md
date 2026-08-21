@@ -10,6 +10,17 @@ Newest entry at the top.
 
 ---
 
+## 2026-08-21 04:00 — hamakali2005 · done
+
+Third door added: **لای حەمە بیدۆزەوە** at shops.layhama.com, beside hotels and
+homes. New entry in projects.ts, a ShopsMark drawn in the same family — navy
+badge, gold double ring, the three stars, a shop front under an awning with its
+counter punched out — and the grid opened to lg:grid-cols-3 in a max-w-6xl.
+
+Titles, the OG card and the organisation JSON-LD all say three now, and
+subOrganization carries shops so a search engine reads the four domains as one
+business.
+
 ## 2026-08-21 02:45 — hamakali2005 · done
 
 Shared workflow set up: Claude now runs git on both sides, and this log was
