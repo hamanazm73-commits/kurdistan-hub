@@ -85,3 +85,28 @@ export function organizationJsonLd(name: string, description: string) {
     sameAs: [HOTELS_URL, HOMES_URL, BEDOZAWA_URL],
   };
 }
+
+/**
+ * The name Google prints where the address would otherwise go.
+ *
+ * A result headed `layhama.com` says nothing; a result headed لای حەمە is
+ * the brand. Google takes that name from `WebSite` structured data — that
+ * is the only signal that does it — and reads it from the home page of each
+ * host, so every one of the four has to declare its own.
+ *
+ * Kurdish first, because that is what someone looking for this types and
+ * what should come back. `alternateName` carries the Arabic and Latin
+ * spellings so all three find the same result.
+ */
+export function websiteJsonLd(name: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${SITE_URL}/#website`,
+    name,
+    alternateName: ["Lay Hama", "يم حمة", "لای حەمە"],
+    url: SITE_URL,
+    inLanguage: "ckb",
+    publisher: { "@id": `${SITE_URL}/#organization` },
+  };
+}
