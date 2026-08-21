@@ -6,7 +6,7 @@ export const SITE_URL =
 /** The three sites this doorway opens onto. */
 export const HOTELS_URL = "https://hotels.layhama.com";
 export const HOMES_URL = "https://homes.layhama.com";
-export const SHOPS_URL = "https://shops.layhama.com";
+export const BEDOZAWA_URL = "https://bedozawa.layhama.com";
 
 /** Kurdish sits at the root; the other two live behind a prefix. */
 export function urlFor(locale: Locale, path = "/"): string {
@@ -78,10 +78,10 @@ export function organizationJsonLd(name: string, description: string) {
       {
         "@type": "Organization",
         name: "Lay Hama Shops",
-        url: SHOPS_URL,
+        url: BEDOZAWA_URL,
         parentOrganization: { "@id": `${SITE_URL}/#organization` },
       },
     ],
-    sameAs: [HOTELS_URL, HOMES_URL, SHOPS_URL],
+    sameAs: [HOTELS_URL, HOMES_URL, BEDOZAWA_URL],
   };
 }

@@ -76,7 +76,7 @@ export default function OgImage() {
 
         {/* the three doors this one opens onto */}
         <div style={{ display: "flex", gap: 18, marginTop: 40 }}>
-          {["hotels.layhama.com", "homes.layhama.com", "shops.layhama.com"].map((d) => (
+          {["hotels.layhama.com", "homes.layhama.com", "bedozawa.layhama.com"].map((d) => (
             <div
               key={d}
               style={{

@@ -93,8 +93,8 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "shops",
-    href: "https://shops.layhama.com",
-    domain: "shops.layhama.com",
+    href: "https://bedozawa.layhama.com",
+    domain: "bedozawa.layhama.com",
     name: {
       ku: "لای حەمە بیدۆزەوە",
       ar: "يم حمة للمحلات",
