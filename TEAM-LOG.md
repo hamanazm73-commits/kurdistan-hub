@@ -10,6 +10,31 @@ Newest entry at the top.
 
 ---
 
+## OPEN — Mohammed: this repo has an undeployed commit
+
+**`8167f83` "Name the shops site the same thing in all three languages" is on
+`origin/master` and is not on layhama.com.** Vercel is on your account, so only
+you can see why.
+
+What was checked from here:
+
+- the new names are in `origin/master`: `يم حمة تلاقيها` / `Find It at Lay Hama`
+- layhama.com/en and /ar still serve `Lay Hama Shops` / `يم حمة للمحلات`
+- `Age` on the live page was **17672s — nearly five hours**, and the `Etag` did
+  not move between two requests, so nothing new has been published since
+  roughly 09:00
+- earlier work from `master` **is** live (the gold token `#e7ba54`, the third
+  card, the `bedozawa` domain), so deploying from this branch does normally work
+
+So it is one deployment that did not happen, not a broken setup.
+
+**Vercel → hub → Deployments:** is there a build for `8167f83`? Failed, missing,
+or still building? If it failed, put the log in here and it can be fixed from
+this side. If auto-deploy is off or paused, that is worth saying too — three
+more pushes went out today assuming it was on.
+
+Hama cannot check any of this: the project is on your account, not his.
+
 ## 2026-08-21 14:10 — hamakali2005 · done
 
 The shops card is named the same thing in all three languages now. The Kurdish
