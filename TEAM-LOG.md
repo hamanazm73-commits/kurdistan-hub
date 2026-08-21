@@ -10,6 +10,12 @@ Newest entry at the top.
 
 ---
 
+## 2026-08-22 02:53 — Mohammed · in progress
+
+Redesigning the three project cards on layhama.com — each card now shows a
+screenshot of its own site inside a browser-window frame, instead of a stock
+photo from Unsplash.
+
 ## OPEN — Mohammed: Vercel is blocking everything Hama pushes
 
 Vercel's own words, on the dukan deployment of `0b92381`:
