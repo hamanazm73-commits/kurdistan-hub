@@ -10,6 +10,16 @@ Newest entry at the top.
 
 ---
 
+## 2026-08-21 14:10 — hamakali2005 · done
+
+The shops card is named the same thing in all three languages now. The Kurdish
+said لای حەمە بیدۆزەوە while the Arabic and English still said "shops" — a
+description, not the name. Now يم حمة تلاقيها and Find It at Lay Hama, in the
+card, the organisation data here and the site's own.
+
+**Hama chose the Kurdish name.** If either of the other two reads badly to a
+native ear, change it and tell him — do not leave it wrong quietly.
+
 ## 2026-08-21 04:08 — hamakali2005 · done
 
 The third door is **bedozawa.layhama.com**, not shops. — the address now says

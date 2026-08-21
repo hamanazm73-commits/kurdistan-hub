@@ -97,8 +97,8 @@ export const PROJECTS: Project[] = [
     domain: "bedozawa.layhama.com",
     name: {
       ku: "لای حەمە بیدۆزەوە",
-      ar: "يم حمة للمحلات",
-      en: "Lay Hama Shops",
+      ar: "يم حمة تلاقيها",
+      en: "Find It at Lay Hama",
     },
     tagline: {
       ku: "نووسین لە تۆ، گەڕان و دۆزینەوە لە ئێمە",

@@ -77,7 +77,7 @@ export function organizationJsonLd(name: string, description: string) {
       },
       {
         "@type": "Organization",
-        name: "Lay Hama Shops",
+        name: "Find It at Lay Hama",
         url: BEDOZAWA_URL,
         parentOrganization: { "@id": `${SITE_URL}/#organization` },
       },
