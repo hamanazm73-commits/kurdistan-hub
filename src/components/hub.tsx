@@ -253,17 +253,23 @@ export function Hub() {
                   </div>
 
                   <div className="relative overflow-hidden rounded-xl border border-white/[0.07] bg-navy-deep">
-                    {/* Held back a little. Three bright screens side by side
-                        are three things shouting; muted, they sit under the
-                        words and brighten when the card is touched. */}
+                    {/* One picture per language — a reader who chose Arabic
+                        was being shown a Kurdish site. `key` makes React swap
+                        the element rather than the src, so the old picture is
+                        not left on screen while the new one loads.
+
+                        Held back a little, too: three bright screens side by
+                        side are three things shouting; muted, they sit under
+                        the words and brighten when the card is touched. */}
                     <img
-                      src={p.shot}
+                      key={locale}
+                      src={p.shot[locale]}
                       alt={p.name[locale]}
                       width={1280}
-                      height={800}
+                      height={620}
                       loading="lazy"
                       decoding="async"
-                      className="aspect-[8/5] w-full object-cover object-top opacity-90 saturate-[0.8] transition-all duration-700 group-hover:scale-[1.03] group-hover:opacity-100 group-hover:saturate-100"
+                      className="aspect-[2/1] w-full object-cover object-top opacity-90 saturate-[0.8] transition-all duration-700 group-hover:scale-[1.03] group-hover:opacity-100 group-hover:saturate-100"
                     />
                     {/* fades the foot of the picture into the card, so there
                         is no hard seam above the text */}

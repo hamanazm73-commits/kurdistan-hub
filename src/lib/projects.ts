@@ -12,11 +12,12 @@ export interface Project {
   domain: string;
   name: L;
   tagline: L;
-  /** a screenshot of the site itself, under /public. A picture of the real
-      page answers "what is this" faster than any sentence, and unlike a stock
-      photograph it cannot be about somebody else’s hotel. Refreshed with
-      `node shoot.mjs` — see README. */
-  shot: string;
+  /** a screenshot of the site itself, under /public — one per language,
+      because a reader who chose Arabic was being shown a Kurdish site. A
+      picture of the real page answers "what is this" faster than any sentence,
+      and unlike a stock photograph it cannot be about somebody else’s hotel.
+      Refreshed with `npm run shots` — see README. */
+  shot: L;
   /** one sentence. There were three bullet points here; three cards times
       three points is nine lines on one screen, which nobody reads. */
   blurb: L;
@@ -46,7 +47,11 @@ export const PROJECTS: Project[] = [
       ar: "ابحث عن فندق واحجز مباشرة",
       en: "Find a hotel and book directly",
     },
-    shot: "/shots/hotels.jpg",
+    shot: {
+      ku: "/shots/hotels.ku.jpg",
+      ar: "/shots/hotels.ar.jpg",
+      en: "/shots/hotels.en.jpg",
+    },
     blurb: {
       ku: "هۆتێل لە هەولێر، سلێمانی، دهۆک، دووکان و کەرکووک. نرخی ڕوون، پارە ڕاستەوخۆ بۆ هۆتێل، و حیجز بە چەند کلیکێک.",
       ar: "فنادق في أربيل والسليمانية ودهوك ودوكان وكركوك. أسعار واضحة، والدفع مباشرة للفندق، والحجز بنقرات.",
@@ -67,7 +72,11 @@ export const PROJECTS: Project[] = [
       ar: "منازل وشقق وأراضٍ للبيع والإيجار",
       en: "Houses, flats and land, to buy or rent",
     },
-    shot: "/shots/homes.jpg",
+    shot: {
+      ku: "/shots/homes.ku.jpg",
+      ar: "/shots/homes.ar.jpg",
+      en: "/shots/homes.en.jpg",
+    },
     blurb: {
       ku: "خانوو، شوقە و زەوی بۆ فرۆشتن و کرێ — بەپێی شار و گەڕەک، بە وێنە و نرخ و شوێن لەسەر نەخشە.",
       ar: "منازل وشقق وأراضٍ للبيع والإيجار — حسب المدينة والحي، مع الصور والأسعار والموقع على الخريطة.",
@@ -88,7 +97,11 @@ export const PROJECTS: Project[] = [
       ar: "اكتب ما تريد، ونحن نجد المحل",
       en: "Name the thing, we find the shop",
     },
-    shot: "/shots/shops.jpg",
+    shot: {
+      ku: "/shots/shops.ku.jpg",
+      ar: "/shots/shops.ar.jpg",
+      en: "/shots/shops.en.jpg",
+    },
     blurb: {
       ku: "بنووسە چیت دەوێت، نەک ناوی دووکان — و دووکانەکەی شارەکەی خۆت بە ژمارە و ناونیشانەوە بدۆزەرەوە.",
       ar: "اكتب ما تريد، لا اسم المحل — ونجد لك محل مدينتك بالهاتف والعنوان.",

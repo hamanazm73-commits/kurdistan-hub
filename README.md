@@ -18,8 +18,16 @@ needs touching.
 ## The screenshots on the cards
 
 Each card shows a picture of the site it links to, taken from the live site and
-kept in `public/shots/`. A picture goes stale the moment that site changes, so
-when one of them gets a new look, take them again:
+kept in `public/shots/` — **nine files: three sites in three languages**, so a
+reader who chose Arabic is not shown a Kurdish site.
+
+The frame stops above the counters in the hotels and homes heroes ("16 hotels,
+2 cities"). Those change every time somebody adds a listing, and a picture
+containing one would be wrong within the week. The script finds them on the
+page rather than assuming where they sit, so it keeps working if the heroes
+are rearranged.
+
+A picture still goes stale when a site gets a new look. When that happens:
 
 ```bash
 npm run shots

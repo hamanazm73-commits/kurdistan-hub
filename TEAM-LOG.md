@@ -10,6 +10,35 @@ Newest entry at the top.
 
 ---
 
+## 2026-08-22 03:40 — Mohammed · done
+
+Two faults in the card screenshots from an hour ago, both found by Hama:
+
+1. **The picture stayed Kurdish** whatever language the doorway was set to.
+2. **The pictures contained counts** — "16 hotels, 2 cities" on hotels, "3
+   cities, 1 property" on homes — so adding a listing would have made them
+   wrong, and every listing after that would have meant taking them again.
+
+Both are fixed in `scripts/shoot.mjs`:
+
+- **Nine pictures, not three.** Each site is shot in ku, ar and en;
+  `projects.ts` now holds `shot` as a translated field and the card picks the
+  one matching the reader. Only three ever load — the language in use.
+- **The frame stops above the counter.** Rather than hard-coding where the
+  counter sits today, the script asks the page: it looks for anything in the
+  hero whose whole text is a number and clips 26px above the highest one. The
+  measurement runs per language, because the Arabic hero is shorter than the
+  English one — 585px against 630px on homes.
+- The top of the frame is still the site's own `<header>`, so switching the
+  coming-soon banner off does not slice into the hotels navigation.
+
+The card frame went from 8:5 to 2:1 to suit the shorter crop.
+
+Also fixed: `npm run shots` exited 1 on Windows after writing all nine files,
+because Chrome still held its temp profile when the script tried to delete it.
+
+Checked in all three languages at 1280px and in Kurdish at 375px.
+
 ## 2026-08-22 03:10 — Mohammed · done
 
 The three project cards on layhama.com now show a **screenshot of the site**
