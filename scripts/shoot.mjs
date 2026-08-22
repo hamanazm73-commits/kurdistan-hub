@@ -75,10 +75,18 @@ const SITES = [
     // choice has to be readable before the page is built.
     prepare: (l) =>
       `document.cookie = "dukan.lang=" + ${JSON.stringify(l)} + "; path=/; max-age=31536000; samesite=lax";`,
-    // Deliberately near-empty — a logo and a search box, like Google — so it is
-    // cropped in from both sides. Narrowing the viewport instead made its
-    // language pills collide with the logo.
-    inset: 102,
+    /*
+     * No inset any more.
+     *
+     * It was cropped in from both sides because the page was near-empty — a
+     * logo and a search box on flat navy, like Google. It has a photograph
+     * now, so there is nothing to hide, and the inset had become the reason
+     * the picture did not fit: the card window is 2:1 and crops from the
+     * bottom, a narrower frame is a taller picture once it is scaled back to
+     * 1280, and the search box went over the edge. At full width the same
+     * frame comes out at 2.1:1 and clears it.
+     */
+    inset: 0,
     // The search box is the whole site; a frame that stops halfway down it is
     // a picture of a site that looks broken. It moved 51px the morning a badge
     // and a rule went into that hero, and a fixed height cut it in half — so
@@ -238,12 +246,22 @@ try {
         clip: { x: site.inset, y: top, width, height, scale: 1280 / width },
       }, sessionId);
 
+      /*
+       * The card window is 2:1, object-cover, anchored to the top — so a
+       * picture taller than 2:1 loses its bottom, and everything here is
+       * framed to end on something. Worth a word rather than a silent crop:
+       * this is what cut the shops search box in half twice.
+       */
+      const shown = (1280 / (height * (1280 / width))).toFixed(2);
+      const tooTall = Number(shown) < 2;
+
       const buf = Buffer.from(data, "base64");
       writeFileSync(join(OUT, `${site.name}.${lang}.jpg`), buf);
       console.log(
         `${site.name}.${lang}`.padEnd(12),
         `${Math.round(buf.length / 1024)} KB`.padStart(6),
         ` ${width}×${height}`.padEnd(11),
+        tooTall ? `  RATIO ${shown} — the card crops below this` : "",
         cut ? `counter at ${cut}px` : "no counter",
       );
 

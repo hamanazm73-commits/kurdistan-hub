@@ -35,8 +35,24 @@ was mentioned in a comment directly above the code that used it, so the comment
 got the value and the code kept the bare identifier — the page threw and the
 whole run died on `JSON.parse(undefined)`.
 
+Then it was still cut, for a second and different reason. The card window is
+`aspect-[2/1]` with `object-cover object-top`, so anything taller than 2:1
+loses its bottom — and the shops frame, cropped 102px in from each side and
+scaled back out to 1280, came to 1.82:1. The inset was there because that page
+used to be near-empty; it has a photograph now, so it is gone, and at full
+width the same frame is 2.17:1 and clears the window. The script says so out
+loud if a shot ever comes back under 2:1 again.
+
+And before either of those: the picture on the server was right the whole time
+and Hama was being served his own cached copy. The nine keep their names
+between runs, so `npm run shots` now stamps `src/lib/shots-version.ts` and the
+card asks for `?v=<stamp>`.
+
 Nothing in your card design was touched — the browser window, the tilt and the
 glint are all yours and all still there. This is only the picture inside them.
+
+(`npm install` here too: `@vercel/analytics` was in the lockfile and not in
+this clone, so the build failed on the import until it ran.)
 
 ## 2026-08-22 04:20 — Mohammed · done
 
