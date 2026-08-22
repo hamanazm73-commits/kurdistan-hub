@@ -251,6 +251,26 @@ try {
     }
   }
   ws.close();
+
+  /*
+   * Stamp the pictures, so a browser fetches the new ones.
+   *
+   * The nine files keep their names, and Vercel serves them
+   * "max-age=0, must-revalidate" — enough for a reload, not enough for a
+   * browser that already holds one and is never asked to look again. Hama
+   * re-took the shops picture, was served his own copy, and reasonably
+   * concluded it had not worked.
+   *
+   * One stamp for the set rather than a hash each: the nine are always
+   * written together, and a single constant is a thing somebody can read.
+   */
+  const VERSION_FILE = join(
+    dirname(fileURLToPath(import.meta.url)), "..", "src", "lib", "shots-version.ts");
+  writeFileSync(VERSION_FILE,
+    "/** Written by `npm run shots`. Busts the browser cache on the card\n" +
+    " *  pictures — without it a reader keeps the copy they already have. */\n" +
+    "export const SHOTS_VERSION = \"" + Date.now().toString(36) + "\";\n");
+  console.log("\nstamped src/lib/shots-version.ts");
 } finally {
   chrome?.kill();
   // Chrome keeps a lock on its profile for a moment after being killed, and on

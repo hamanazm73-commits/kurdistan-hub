@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { useI18n, LOCALES } from "@/lib/i18n";
 import { PROJECTS } from "@/lib/projects";
+import { SHOTS_VERSION } from "@/lib/shots-version";
 import { HotelsMark, EstateMark, ShopsMark, HubMark } from "./marks";
 
 const MARKS = { hotels: HotelsMark, estate: EstateMark, shops: ShopsMark } as const;
@@ -299,7 +300,7 @@ export function Hub() {
                           not left on screen while the new one loads. */}
                       <img
                         key={locale}
-                        src={p.shot[locale]}
+                        src={`${p.shot[locale]}?v=${SHOTS_VERSION}`}
                         alt={p.name[locale]}
                         width={1280}
                         height={620}
