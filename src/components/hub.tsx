@@ -1,7 +1,16 @@
 "use client";
 
 import { motion } from "motion/react";
-import { ArrowLeft, ChevronDown, Globe, Mail } from "lucide-react";
+import {
+  ArrowLeft,
+  ChevronDown,
+  ChevronLeft,
+  ChevronRight,
+  Globe,
+  Lock,
+  Mail,
+  RotateCw,
+} from "lucide-react";
 import { useI18n, LOCALES } from "@/lib/i18n";
 import { PROJECTS } from "@/lib/projects";
 import { HotelsMark, EstateMark, ShopsMark, HubMark } from "./marks";
@@ -232,55 +241,81 @@ export function Hub() {
                     three rings, a turning wedge of light and a floating mark,
                     repeated three times down the page. It was a lot of motion
                     saying nothing: a logo cannot tell you what a site looks
-                    like. A screenshot can, and the window frame around it says
-                    "this is a website" before a single word is read. */}
-                <div className="p-2.5 pb-0 sm:p-3 sm:pb-0">
-                  {/* the chrome: three dots and the address, which is why the
-                      domain no longer needs a chip of its own below */}
-                  <div className="flex items-center gap-1.5 px-1 pb-2">
-                    <span aria-hidden className="size-1.5 rounded-full bg-white/15" />
-                    <span aria-hidden className="size-1.5 rounded-full bg-white/15" />
-                    <span aria-hidden className="size-1.5 rounded-full bg-white/15" />
-                    <span
-                      dir="ltr"
-                      className="flex min-w-0 flex-1 items-center justify-center gap-1.5 rounded-full bg-white/[0.05] px-2.5 py-1"
-                    >
-                      <Mark bare className="size-3 shrink-0" />
-                      <span className="truncate font-mono text-[0.6rem] text-white/40">
-                        {p.domain}
+                    like. A screenshot can.
+
+                    A screenshot on its own still reads as a picture, though.
+                    What makes it read as a window is the set of things a real
+                    browser has: a tab with the site’s own favicon on it, the
+                    back/forward/reload controls, a padlock in the address, a
+                    scrollbar showing there is more page below, and the light —
+                    a lit screen throws some onto whatever it stands on. The
+                    depth, glass and glint are in `globals.css` under
+                    "The browser window on each project card". */}
+                <div className="win-stage p-3.5 pb-0 [perspective:1400px]">
+                  <div className="win overflow-hidden rounded-t-[0.7rem] rounded-b-md border border-white/[0.09] bg-white/[0.045]">
+                    {/* the tab strip */}
+                    <div className="flex items-end gap-1.5 bg-navy-deep/40 px-2 pt-1.5">
+                      <span className="flex min-w-0 max-w-[78%] items-center gap-1.5 rounded-t-md border border-b-0 border-white/[0.07] bg-navy-deep px-2 py-1">
+                        <Mark bare className="size-[0.7rem] shrink-0" />
+                        <span className="truncate text-[0.58rem] text-white/55">
+                          {p.name[locale]}
+                        </span>
                       </span>
-                    </span>
-                  </div>
+                      <span aria-hidden className="pb-1.5 text-[0.7rem] leading-none text-white/25">
+                        +
+                      </span>
+                      <span aria-hidden className="ms-auto flex gap-1 pb-1.5 pe-1">
+                        <i className="size-1.5 rounded-full bg-white/[0.13]" />
+                        <i className="size-1.5 rounded-full bg-white/[0.13]" />
+                        <i className="size-1.5 rounded-full bg-white/[0.13]" />
+                      </span>
+                    </div>
 
-                  <div className="relative overflow-hidden rounded-xl border border-white/[0.07] bg-navy-deep">
-                    {/* One picture per language — a reader who chose Arabic
-                        was being shown a Kurdish site. `key` makes React swap
-                        the element rather than the src, so the old picture is
-                        not left on screen while the new one loads.
+                    {/* the toolbar */}
+                    <div className="flex items-center gap-2 bg-navy-deep px-2.5 pb-2 pt-1.5">
+                      <span aria-hidden className="flex shrink-0 gap-1.5 text-white/25">
+                        <ChevronRight className="size-2.5 rtl:hidden" />
+                        <ChevronLeft className="size-2.5 ltr:hidden" />
+                        <ChevronLeft className="size-2.5 rtl:hidden" />
+                        <ChevronRight className="size-2.5 ltr:hidden" />
+                        <RotateCw className="size-2.5" />
+                      </span>
+                      <span
+                        dir="ltr"
+                        className="flex min-w-0 flex-1 items-center gap-1 rounded-full bg-white/[0.05] px-2 py-0.5"
+                      >
+                        <Lock className="size-2 shrink-0 text-white/35" />
+                        <span className="truncate font-mono text-[0.55rem] text-white/45">
+                          {p.domain}
+                        </span>
+                      </span>
+                    </div>
 
-                        Held back a little, too: three bright screens side by
-                        side are three things shouting; muted, they sit under
-                        the words and brighten when the card is touched. */}
-                    <img
-                      key={locale}
-                      src={p.shot[locale]}
-                      alt={p.name[locale]}
-                      width={1280}
-                      height={620}
-                      loading="lazy"
-                      decoding="async"
-                      className="aspect-[2/1] w-full object-cover object-top opacity-90 saturate-[0.8] transition-all duration-700 group-hover:scale-[1.03] group-hover:opacity-100 group-hover:saturate-100"
-                    />
-                    {/* fades the foot of the picture into the card, so there
-                        is no hard seam above the text */}
-                    <span
-                      aria-hidden
-                      className="pointer-events-none absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t from-navy-deep to-transparent"
-                    />
+                    {/* the page itself */}
+                    <div className="win-glass relative overflow-hidden bg-navy-deep">
+                      {/* One picture per language — a reader who chose Arabic
+                          was being shown a Kurdish site. `key` makes React swap
+                          the element rather than the src, so the old picture is
+                          not left on screen while the new one loads. */}
+                      <img
+                        key={locale}
+                        src={p.shot[locale]}
+                        alt={p.name[locale]}
+                        width={1280}
+                        height={620}
+                        loading="lazy"
+                        decoding="async"
+                        className="aspect-[2/1] w-full object-cover object-top brightness-[1.04] contrast-[1.03] transition-all duration-700 group-hover:brightness-110 group-hover:contrast-[1.05] group-hover:saturate-[1.12]"
+                      />
+                      <span aria-hidden className="win-bar">
+                        <span />
+                      </span>
+                      <span aria-hidden className="win-glint" />
+                    </div>
                   </div>
 
                   {!live && (
-                    <span className="absolute end-5 top-9 rounded-full bg-gold/15 px-3 py-1 text-xs font-bold text-gold backdrop-blur">
+                    <span className="absolute end-6 top-10 z-10 rounded-full bg-gold/15 px-3 py-1 text-xs font-bold text-gold backdrop-blur">
                       {t.soon}
                     </span>
                   )}

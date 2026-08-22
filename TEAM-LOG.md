@@ -10,6 +10,34 @@ Newest entry at the top.
 
 ---
 
+## 2026-08-22 04:20 — Mohammed · done
+
+The screenshot on each card now sits in a browser window that looks like one.
+It had three dots and an address, which says "browser" only to somebody
+already looking for it. Six things were added, and every one of them is a
+thing a real browser has — it was their absence that made it read as a
+picture rather than a screen:
+
+- a **tab**, carrying the site's own favicon and its name
+- **back / forward / reload**, and a **padlock** in the address
+- a **scrollbar**, thumb a little down from the top — the detail that says
+  this is the head of a long page, not the whole of a short one
+- **depth**: the window casts a shadow onto the card and catches a hairline
+  of light along its top edge
+- **light**: a lit screen spills onto what it stands on, so the card glows
+  faintly behind the window; the picture itself is no longer held back
+- a **tilt** of 3.5°, straightening when a finger is on the card, and a
+  **glint** that crosses the glass once on hover
+
+Nothing moves until something is hovered, and the whole set is off under
+`prefers-reduced-motion`.
+
+The six parts live in `globals.css` under "The browser window on each project
+card" rather than as Tailwind utilities — it is one object whose parts have to
+agree with each other, and it is readable as CSS.
+
+Checked at 1280px and 375px; no overflow, all three pictures load.
+
 ## 2026-08-22 03:40 — Mohammed · done
 
 Two faults in the card screenshots from an hour ago, both found by Hama:
