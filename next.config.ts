@@ -39,6 +39,29 @@ const nextConfig: NextConfig = {
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
   },
+  async redirects() {
+    return [
+      /*
+       * One name for the front door.
+       *
+       * www.layhama.com was answering 200 with a byte-identical copy of the
+       * site — 45,076 bytes either way — so the two names competed as
+       * duplicates of each other. The canonical tag already pointed at the
+       * apex, which tells Google which one counts, but it is advice rather
+       * than an answer: the duplicate still gets crawled, still gets linked
+       * to, and anyone who lands on it stays there.
+       *
+       * The homes site already does exactly this for its old name. This is
+       * the same rule for the one domain that had not been given it.
+       */
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www\\.layhama\\.com" }],
+        destination: "https://layhama.com/:path*",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
