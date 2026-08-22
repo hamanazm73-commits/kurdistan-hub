@@ -21,6 +21,20 @@ picture of a site that no longer looks like that.
 `homes.en` came back byte-identical. The shops frame reads as one family with
 the other two now: same mountains, same hour, same masthead.
 
+Then Hama pointed out the shops frame was cutting the search box in half. It
+was: the badge and the rule that went into that hero pushed the field down 51px
+and the frame height was a number typed into the config. A site can now name an
+element the frame has to contain — `mustShow: ".field"` — and the height is
+worked out from where that element actually ends, with maxHeight left as a
+ceiling. The counter still wins over both, because a picture with a listing
+count in it is wrong within the week.
+
+One trap worth knowing if you touch `MEASURE`: the per-site token is
+substituted with `String.replace`, which swaps the first occurrence only. It
+was mentioned in a comment directly above the code that used it, so the comment
+got the value and the code kept the bare identifier — the page threw and the
+whole run died on `JSON.parse(undefined)`.
+
 Nothing in your card design was touched — the browser window, the tilt and the
 glint are all yours and all still there. This is only the picture inside them.
 

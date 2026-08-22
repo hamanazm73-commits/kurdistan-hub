@@ -79,7 +79,12 @@ const SITES = [
     // cropped in from both sides. Narrowing the viewport instead made its
     // language pills collide with the logo.
     inset: 102,
-    maxHeight: 530,
+    // The search box is the whole site; a frame that stops halfway down it is
+    // a picture of a site that looks broken. It moved 51px the morning a badge
+    // and a rule went into that hero, and a fixed height cut it in half — so
+    // the frame is told what it must contain rather than how tall to be.
+    mustShow: ".field",
+    maxHeight: 700,
   },
 ];
 
@@ -113,7 +118,16 @@ const MEASURE = `(() => {
     if (y < top + 400 || y > top + 1000) continue;
     cut = Math.min(cut, y);
   }
-  return JSON.stringify({ top, cut: Number.isFinite(cut) ? cut : null });
+  // Where a named element ends, when the site has said the frame has to
+  // contain one. The token below is substituted per site before this runs —
+  // and it is the only place it may appear, because the substitution replaces
+  // one occurrence and a second mention would swallow it.
+  const sel = MUST_SHOW;
+  const must = sel ? document.querySelector(sel) : null;
+  const need = must
+    ? Math.round(must.getBoundingClientRect().bottom + scrollY)
+    : null;
+  return JSON.stringify({ top, cut: Number.isFinite(cut) ? cut : null, need });
 })()`;
 
 /** Dark on all three: a white card in a row of dark ones reads as a hole. */
@@ -191,13 +205,29 @@ try {
       await cdp(ws, "Page.reload", {}, sessionId);
       await sleep(9000);
 
-      const { result } = await cdp(ws, "Runtime.evaluate",
-        { expression: MEASURE, returnByValue: true }, sessionId);
-      const { top, cut } = JSON.parse(result.value);
+      const { result } = await cdp(ws, "Runtime.evaluate", {
+        expression: MEASURE.replace(
+          "MUST_SHOW",
+          JSON.stringify(site.mustShow ?? null),
+        ),
+        returnByValue: true,
+      }, sessionId);
+      const { top, cut, need } = JSON.parse(result.value);
 
-      // Stop a clear margin above the counter, so the rounded top edge of its
-      // box does not peek into the bottom of the frame.
-      const height = Math.min(site.maxHeight, cut ? cut - top - 26 : Infinity);
+      /*
+       * How tall the frame is, in order of who gets to decide.
+       *
+       * The counter is a hard stop: it changes every time somebody adds a
+       * listing, so a frame containing it is wrong within the week. A clear
+       * margin above it, so the rounded top edge of its box does not peek in.
+       *
+       * Below that, a site that named something the frame must contain gets
+       * enough room for it and 24px of air. maxHeight is only the ceiling —
+       * it stops a page with no counter and no floor from being shot to the
+       * bottom of the viewport.
+       */
+      const ceiling = Math.min(site.maxHeight, cut ? cut - top - 26 : Infinity);
+      const height = need ? Math.min(ceiling, need - top + 24) : ceiling;
       const width = 1280 - site.inset * 2;
 
       // JPEG, not PNG: these are photographs of photographs. PNG kept them at
