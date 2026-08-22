@@ -10,6 +10,20 @@ Newest entry at the top.
 
 ---
 
+## 2026-08-22 — hamakali2005 · done
+
+**Re-shot the cards.** The shops site got a hero this morning — a photograph,
+the badge pill and the gold rule the other two open with — and the card was
+still showing the flat navy screen from before it. Three doors, one of them a
+picture of a site that no longer looks like that.
+
+`npm run shots` against the live sites. Eight of the nine changed; only
+`homes.en` came back byte-identical. The shops frame reads as one family with
+the other two now: same mountains, same hour, same masthead.
+
+Nothing in your card design was touched — the browser window, the tilt and the
+glint are all yours and all still there. This is only the picture inside them.
+
 ## 2026-08-22 04:20 — Mohammed · done
 
 The screenshot on each card now sits in a browser window that looks like one.
