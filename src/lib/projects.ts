@@ -12,9 +12,14 @@ export interface Project {
   domain: string;
   name: L;
   tagline: L;
-  /** what a visitor can do there, three at most — this is a doorway, not a
-      brochure, and a fourth line makes the card scroll on a phone */
-  points: L[];
+  /** a screenshot of the site itself, under /public. A picture of the real
+      page answers "what is this" faster than any sentence, and unlike a stock
+      photograph it cannot be about somebody else’s hotel. Refreshed with
+      `node shoot.mjs` — see README. */
+  shot: string;
+  /** one sentence. There were three bullet points here; three cards times
+      three points is nine lines on one screen, which nobody reads. */
+  blurb: L;
   /** shown when the site isn't live yet */
   comingSoon?: boolean;
 }
@@ -41,23 +46,12 @@ export const PROJECTS: Project[] = [
       ar: "ابحث عن فندق واحجز مباشرة",
       en: "Find a hotel and book directly",
     },
-    points: [
-      {
-        ku: "هۆتێل لە هەولێر، سلێمانی، دهۆک، دووکان و کەرکووک",
-        ar: "فنادق في أربيل والسليمانية ودهوك ودوكان وكركوك",
-        en: "Hotels in Erbil, Sulaymaniyah, Duhok, Dukan and Kirkuk",
-      },
-      {
-        ku: "نرخی ڕوون — پارە ڕاستەوخۆ بۆ هۆتێل",
-        ar: "أسعار واضحة — الدفع مباشرة للفندق",
-        en: "Clear prices — you pay the hotel directly",
-      },
-      {
-        ku: "حیجز بە چەند کلیکێک، بە واتساپ پەیوەندی بکە",
-        ar: "احجز بنقرات، وتواصل عبر واتساب",
-        en: "Book in a few taps, reach them on WhatsApp",
-      },
-    ],
+    shot: "/shots/hotels.jpg",
+    blurb: {
+      ku: "هۆتێل لە هەولێر، سلێمانی، دهۆک، دووکان و کەرکووک. نرخی ڕوون، پارە ڕاستەوخۆ بۆ هۆتێل، و حیجز بە چەند کلیکێک.",
+      ar: "فنادق في أربيل والسليمانية ودهوك ودوكان وكركوك. أسعار واضحة، والدفع مباشرة للفندق، والحجز بنقرات.",
+      en: "Hotels in Erbil, Sulaymaniyah, Duhok, Dukan and Kirkuk. Clear prices, you pay the hotel directly, and you book in a few taps.",
+    },
   },
   {
     id: "estate",
@@ -73,23 +67,12 @@ export const PROJECTS: Project[] = [
       ar: "منازل وشقق وأراضٍ للبيع والإيجار",
       en: "Houses, flats and land, to buy or rent",
     },
-    points: [
-      {
-        ku: "بەپێی شار و گەڕەک بگەڕێ",
-        ar: "ابحث حسب المدينة والحي",
-        en: "Search by city and district",
-      },
-      {
-        ku: "وێنە، نرخ و شوێن لەسەر نەخشە",
-        ar: "صور وأسعار وموقع على الخريطة",
-        en: "Photos, prices and the spot on the map",
-      },
-      {
-        ku: "ڕاستەوخۆ پەیوەندی بە خاوەنەکەیەوە بکە",
-        ar: "تواصل مباشرة مع المالك",
-        en: "Reach the owner directly",
-      },
-    ],
+    shot: "/shots/homes.jpg",
+    blurb: {
+      ku: "خانوو، شوقە و زەوی بۆ فرۆشتن و کرێ — بەپێی شار و گەڕەک، بە وێنە و نرخ و شوێن لەسەر نەخشە.",
+      ar: "منازل وشقق وأراضٍ للبيع والإيجار — حسب المدينة والحي، مع الصور والأسعار والموقع على الخريطة.",
+      en: "Houses, flats and land to buy or rent — by city and district, with photos, prices and the spot on the map.",
+    },
   },
   {
     id: "shops",
@@ -105,22 +88,11 @@ export const PROJECTS: Project[] = [
       ar: "اكتب ما تريد، ونحن نجد المحل",
       en: "Name the thing, we find the shop",
     },
-    points: [
-      {
-        ku: "بە شتەکە بگەڕێ، نەک بە ناوی دووکان",
-        ar: "ابحث عن الشيء نفسه، لا عن اسم المحل",
-        en: "Search for the thing, not the shop's name",
-      },
-      {
-        ku: "یەکەم دووکانەکانی شارەکەی خۆت",
-        ar: "محلات مدينتك أولاً",
-        en: "Your own city first",
-      },
-      {
-        ku: "ژمارە و ناونیشان و کاتی کردنەوە",
-        ar: "الهاتف والعنوان وساعات العمل",
-        en: "The number, the address and the hours",
-      },
-    ],
+    shot: "/shots/shops.jpg",
+    blurb: {
+      ku: "بنووسە چیت دەوێت، نەک ناوی دووکان — و دووکانەکەی شارەکەی خۆت بە ژمارە و ناونیشانەوە بدۆزەرەوە.",
+      ar: "اكتب ما تريد، لا اسم المحل — ونجد لك محل مدينتك بالهاتف والعنوان.",
+      en: "Name the thing, not the shop — and find it in your own city, with the number and the address.",
+    },
   },
 ];

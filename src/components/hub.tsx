@@ -226,98 +226,87 @@ export function Hub() {
                     : "cursor-default opacity-70"
                 }`}
               >
-                {/* The stage the mark stands on. The logo is the picture
-                    here, so it is given the room a photograph would have had
-                    and lit from behind rather than dropped onto a flat
-                    panel. overflow-hidden keeps the sweep and the rings
-                    inside the card's rounded corner. */}
-                <div className="relative grid h-44 place-items-center overflow-hidden sm:h-52">
-                  {/* the turning wedge of light */}
-                  <span
-                    aria-hidden
-                    className="sweep pointer-events-none absolute start-1/2 top-1/2 size-[26rem] rounded-full opacity-20 blur-[2px]"
-                    style={{
-                      background:
-                        "conic-gradient(from 0deg, transparent 0 58%, #e7ba54 76%, transparent 88% 100%)",
-                    }}
-                  />
-                  {/* the glow it throws onto the badge */}
-                  <span
-                    aria-hidden
-                    className="pointer-events-none absolute start-1/2 top-1/2 size-56 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/12 blur-3xl rtl:translate-x-1/2"
-                  />
-                  {/* still rings, to give the moving ones something to leave */}
-                  <span
-                    aria-hidden
-                    className="pointer-events-none absolute size-36 rounded-full border border-gold/15 sm:size-40"
-                  />
-                  <span
-                    aria-hidden
-                    className="pointer-events-none absolute size-52 rounded-full border border-gold/[0.07] sm:size-56"
-                  />
-                  {/* and the ones that travel outward */}
-                  <span
-                    aria-hidden
-                    className="ripple pointer-events-none absolute start-1/2 top-1/2 size-36 rounded-full border border-gold/30 sm:size-40"
-                  />
-                  <span
-                    aria-hidden
-                    className="ripple pointer-events-none absolute start-1/2 top-1/2 size-36 rounded-full border border-gold/30 [animation-delay:2.3s] sm:size-40"
-                  />
+                {/* A browser window, not a badge.
 
-                  <Mark
-                    bare
-                    className="float-mark relative size-24 sm:size-28"
-                  />
+                    The card used to show the site’s logo on a lit stage —
+                    three rings, a turning wedge of light and a floating mark,
+                    repeated three times down the page. It was a lot of motion
+                    saying nothing: a logo cannot tell you what a site looks
+                    like. A screenshot can, and the window frame around it says
+                    "this is a website" before a single word is read. */}
+                <div className="p-2.5 pb-0 sm:p-3 sm:pb-0">
+                  {/* the chrome: three dots and the address, which is why the
+                      domain no longer needs a chip of its own below */}
+                  <div className="flex items-center gap-1.5 px-1 pb-2">
+                    <span aria-hidden className="size-1.5 rounded-full bg-white/15" />
+                    <span aria-hidden className="size-1.5 rounded-full bg-white/15" />
+                    <span aria-hidden className="size-1.5 rounded-full bg-white/15" />
+                    <span
+                      dir="ltr"
+                      className="flex min-w-0 flex-1 items-center justify-center gap-1.5 rounded-full bg-white/[0.05] px-2.5 py-1"
+                    >
+                      <Mark bare className="size-3 shrink-0" />
+                      <span className="truncate font-mono text-[0.6rem] text-white/40">
+                        {p.domain}
+                      </span>
+                    </span>
+                  </div>
 
-                  {/* the drawing fades into the card rather than stopping on
-                      a hard line above the text */}
-                  <span
-                    aria-hidden
-                    className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-navy-deep to-transparent"
-                  />
+                  <div className="relative overflow-hidden rounded-xl border border-white/[0.07] bg-navy-deep">
+                    {/* Held back a little. Three bright screens side by side
+                        are three things shouting; muted, they sit under the
+                        words and brighten when the card is touched. */}
+                    <img
+                      src={p.shot}
+                      alt={p.name[locale]}
+                      width={1280}
+                      height={800}
+                      loading="lazy"
+                      decoding="async"
+                      className="aspect-[8/5] w-full object-cover object-top opacity-90 saturate-[0.8] transition-all duration-700 group-hover:scale-[1.03] group-hover:opacity-100 group-hover:saturate-100"
+                    />
+                    {/* fades the foot of the picture into the card, so there
+                        is no hard seam above the text */}
+                    <span
+                      aria-hidden
+                      className="pointer-events-none absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t from-navy-deep to-transparent"
+                    />
+                  </div>
 
                   {!live && (
-                    <span className="absolute end-4 top-4 rounded-full bg-gold/15 px-3 py-1 text-xs font-bold text-gold backdrop-blur">
+                    <span className="absolute end-5 top-9 rounded-full bg-gold/15 px-3 py-1 text-xs font-bold text-gold backdrop-blur">
                       {t.soon}
                     </span>
                   )}
                 </div>
+                <div className="flex flex-1 flex-col p-6 pt-5 sm:p-7 sm:pt-6">
+                  {/* The one gold thing on the card. It replaces the filled
+                      button that used to sit at the bottom — the whole card is
+                      already the link, so the button was a second thing to
+                      press for the same result. */}
+                  <span
+                    aria-hidden
+                    className="mb-4 block h-0.5 w-8 rounded-full bg-gold transition-all duration-500 group-hover:w-14"
+                  />
 
-                <div className="flex flex-1 flex-col p-6 pt-1 sm:p-7 sm:pt-2">
                   <h3 className="text-xl font-extrabold leading-tight sm:text-2xl">
                     {p.name[locale]}
                   </h3>
                   <p className="mt-1.5 text-sm font-medium text-gold/90">
                     {p.tagline[locale]}
                   </p>
-
-                  {/* the address, so the button holds no surprises */}
-                  <span
-                    dir="ltr"
-                    className="mt-3 w-fit rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-1 font-mono text-[0.68rem] text-white/40"
-                  >
-                    {p.domain}
-                  </span>
-
-                  <ul className="mt-5 space-y-2.5">
-                    {p.points.map((pt, j) => (
-                      <li
-                        key={j}
-                        className="flex items-start gap-2.5 text-sm text-white/55"
-                      >
-                        <span className="mt-[0.45rem] size-1.5 shrink-0 rounded-full bg-gold/70" />
-                        <span className="leading-relaxed">{pt[locale]}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <p className="mt-3 flex-1 text-sm leading-relaxed text-white/55">
+                    {p.blurb[locale]}
+                  </p>
 
                   {live && (
-                    <span className="mt-6 inline-flex w-fit items-center gap-2 rounded-full bg-gold px-5 py-2.5 text-sm font-bold text-[#0f1624] shadow-lg shadow-black/30 transition-all group-hover:gap-3.5">
-                      {t.visit}
-                      <ArrowLeft
-                        className={`size-4 ${dir === "ltr" ? "rotate-180" : ""}`}
-                      />
+                    <span className="mt-6 flex items-center justify-end border-t border-white/10 pt-4 text-sm font-bold text-gold">
+                      <span className="inline-flex items-center gap-2 transition-all group-hover:gap-3.5">
+                        {t.visit}
+                        <ArrowLeft
+                          className={`size-4 ${dir === "ltr" ? "rotate-180" : ""}`}
+                        />
+                      </span>
                     </span>
                   )}
                 </div>

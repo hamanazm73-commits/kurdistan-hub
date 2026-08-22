@@ -10,11 +10,41 @@ Newest entry at the top.
 
 ---
 
-## 2026-08-22 02:53 — Mohammed · in progress
+## 2026-08-22 03:10 — Mohammed · done
 
-Redesigning the three project cards on layhama.com — each card now shows a
-screenshot of its own site inside a browser-window frame, instead of a stock
-photo from Unsplash.
+The three project cards on layhama.com now show a **screenshot of the site**
+they link to, inside a browser-window frame with the address in its bar.
+
+What was there before: each card had the project's logo on a lit stage — two
+still rings, two rippling outward, a wedge of gold turning behind it and the
+mark floating up and down, three times over. Under it, the name, the tagline,
+the domain in a chip, three bullet points and a filled gold button.
+
+What changed and why:
+
+- **The logo became a screenshot.** A logo cannot tell anyone what a site
+  looks like; a picture of the page can, and the window frame around it reads
+  as "a website" before a word is read.
+- **The domain moved into the address bar**, so it no longer needs a chip of
+  its own — and the project's mark sits beside it like a favicon, which is
+  why `marks.tsx` is still used.
+- **Nine bullet points became three sentences.** Three cards times three
+  points is nine lines on one screen and nobody reads them. `points` in
+  `projects.ts` is now `blurb`, one sentence in all three languages.
+- **The gold button became a gold rule** above the name that widens on hover.
+  The whole card was already the link, so the button was a second thing to
+  press for the same result.
+- **60 lines of animation CSS deleted** — `.sweep`, `.ripple`, `.float-mark`
+  and their reduced-motion block existed only for the stage.
+
+`npm run shots` (new, `scripts/shoot.mjs`) retakes all three pictures from the
+live sites. It drives headless Chrome over DevTools Protocol, because each of
+the three opens a language chooser on a first visit and `chrome --screenshot`
+has no way to answer one. Needs Chrome, no packages, no key. **When you change
+the look of hotels, homes or bedozawa, run it** — otherwise the doorway keeps
+advertising a version of your site that no longer exists.
+
+Checked at 375px: no overflow, the cards stack, all three images load.
 
 ## OPEN — Mohammed: Vercel is blocking everything Hama pushes
 
